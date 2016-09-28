@@ -18,14 +18,23 @@ class CreateCircuitViewController: UIViewController {
     @IBOutlet weak var durationTextField: UITextField!
     
     @IBAction func enterButtonPressed(sender: UIButton) {
-        let newCircuitEntry = CircuitObject(workoutName: self.exerciseNameTextField.text! , duration : Int(self.durationTextField.text!)!)
         
-        
-        circuitExcercises.append(newCircuitEntry)
-        
-        circuitCollectionView.reloadData()
+        if let exerciseName = self.exerciseNameTextField?.text! {
+            if let duration = Int(self.durationTextField.text!) {
+                
+                let newCircuitEntry = CircuitObject(workoutName: exerciseName , duration : duration)
+                self.circuitExcercises.append(newCircuitEntry)
+                
+                self.circuitCollectionView.reloadData()
+            }
+            else {
+                print("Please add a duration")
+            }
+        }
+        else {
+            print("Please add an exercise name")
+        }
     }
-    
 }
 
 extension CreateCircuitViewController : UICollectionViewDataSource {
