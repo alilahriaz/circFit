@@ -84,6 +84,7 @@ extension CreateCircuitViewController : UICollectionViewDataSource {
         let circuit = self.circuitExcercises[indexPath.item]
         cell.workoutName = circuit.workoutName!
         cell.workoutDuration = circuit.duration!
+        cell.type = circuit.type
         
         return cell
     }
