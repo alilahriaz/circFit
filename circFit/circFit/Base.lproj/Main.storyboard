@@ -22,18 +22,19 @@
                                 <rect key="frame" x="0.0" y="20" width="600" height="100"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Duration (s)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="er4-6o-92p" userLabel="Duration (s) Text Field">
-                                        <rect key="frame" x="169" y="25" width="145" height="50"/>
+                                        <rect key="frame" x="174" y="25" width="150" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S6V-C8-nOI" userLabel="Enter Set button">
-                                        <rect key="frame" x="539" y="35" width="46" height="30"/>
-                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="525" y="25" width="60" height="50"/>
+                                        <color key="backgroundColor" red="0.31372550129999999" green="0.48627451059999999" blue="0.75294119120000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="5aP-hC-3ds"/>
-                                            <constraint firstAttribute="width" constant="46" id="csS-FH-bde"/>
+                                            <constraint firstAttribute="height" constant="50" id="5aP-hC-3ds"/>
+                                            <constraint firstAttribute="width" constant="60" id="csS-FH-bde"/>
                                         </constraints>
-                                        <state key="normal" title="Enter">
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                        <state key="normal" title="ADD">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -41,26 +42,45 @@
                                         </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Exercise Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ooZ-gz-yAG" userLabel="Exercise Name Text Field">
-                                        <rect key="frame" x="8" y="25" width="145" height="50"/>
+                                        <rect key="frame" x="8" y="25" width="150" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="145" id="DDd-sx-ySD"/>
                                             <constraint firstAttribute="height" constant="50" id="GaT-XU-ygU"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="DDd-sx-ySD"/>
+                                            </mask>
+                                        </variation>
                                     </textField>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xw8-lt-WOJ">
+                                        <rect key="frame" x="344" y="30" width="161" height="40"/>
+                                    </pickerView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.30239657279999999" green="0.70129024620000002" blue="0.40907042729999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="xw8-lt-WOJ" secondAttribute="trailing" id="1bF-Jc-mKQ"/>
                                     <constraint firstItem="ooZ-gz-yAG" firstAttribute="centerY" secondItem="zp2-Uh-rOR" secondAttribute="centerY" id="EW4-P8-8au"/>
                                     <constraint firstItem="ooZ-gz-yAG" firstAttribute="leading" secondItem="zp2-Uh-rOR" secondAttribute="leading" constant="8" id="N1Y-0v-M7K"/>
+                                    <constraint firstItem="xw8-lt-WOJ" firstAttribute="leading" secondItem="er4-6o-92p" secondAttribute="trailing" constant="20" id="SWm-dU-ILQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="xw8-lt-WOJ" secondAttribute="bottom" constant="30" id="Tbe-T8-m13"/>
                                     <constraint firstItem="er4-6o-92p" firstAttribute="leading" secondItem="ooZ-gz-yAG" secondAttribute="trailing" constant="16" id="WaW-eM-hT4"/>
+                                    <constraint firstItem="ooZ-gz-yAG" firstAttribute="width" secondItem="zp2-Uh-rOR" secondAttribute="width" multiplier="0.25" id="gXa-bS-r3M"/>
                                     <constraint firstItem="er4-6o-92p" firstAttribute="width" secondItem="ooZ-gz-yAG" secondAttribute="width" id="ibq-lX-gSc"/>
                                     <constraint firstItem="er4-6o-92p" firstAttribute="height" secondItem="ooZ-gz-yAG" secondAttribute="height" id="inM-VP-AwX"/>
+                                    <constraint firstItem="S6V-C8-nOI" firstAttribute="leading" secondItem="xw8-lt-WOJ" secondAttribute="trailing" constant="20" id="krQ-A7-Zwp"/>
                                     <constraint firstAttribute="trailing" secondItem="S6V-C8-nOI" secondAttribute="trailing" constant="15" id="pTX-mz-Xau"/>
                                     <constraint firstItem="er4-6o-92p" firstAttribute="centerY" secondItem="ooZ-gz-yAG" secondAttribute="centerY" id="qnm-zP-xkf"/>
+                                    <constraint firstItem="xw8-lt-WOJ" firstAttribute="top" secondItem="zp2-Uh-rOR" secondAttribute="top" constant="30" id="r2r-4U-AGP"/>
                                     <constraint firstItem="S6V-C8-nOI" firstAttribute="centerY" secondItem="zp2-Uh-rOR" secondAttribute="centerY" id="tw4-SW-HL2"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="1bF-Jc-mKQ"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OrL-Nd-Yxy">
                                 <rect key="frame" x="0.0" y="120" width="600" height="480"/>
@@ -79,7 +99,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxM-r3-6BE">
-                                                    <rect key="frame" x="8" y="12.5" width="449.5" height="40"/>
+                                                    <rect key="frame" x="8" y="12" width="449.5" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="nU1-0e-H1p"/>
                                                     </constraints>
@@ -135,6 +155,7 @@
                         <outlet property="circuitCollectionView" destination="OrL-Nd-Yxy" id="Vnw-Wc-fX0"/>
                         <outlet property="durationTextField" destination="er4-6o-92p" id="l0W-3d-lID"/>
                         <outlet property="exerciseNameTextField" destination="ooZ-gz-yAG" id="0oh-wH-v35"/>
+                        <outlet property="exerciseTypePickerView" destination="xw8-lt-WOJ" id="Aby-YD-Blc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
