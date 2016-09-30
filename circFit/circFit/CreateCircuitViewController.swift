@@ -64,11 +64,35 @@ class CreateCircuitViewController: UIViewController, UIPickerViewDelegate, UIPic
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let type = exerciseType(rawValue: row)
         self.currentExerciseType = type!
+        
+        if (self.currentExerciseType == .Rest) {
+            self.exerciseNameTextField.text = "Rest"
+            self.exerciseNameTextField.enabled = false
+        }
+        else {
+            self.exerciseNameTextField.enabled = true
+            self.exerciseNameTextField.text = ""
+        }
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         let type = exerciseType(rawValue: row)
         return type?.description
+    }
+    
+    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
+        
+        var pickerLabel : UILabel?
+        
+        if pickerLabel == nil {
+            pickerLabel = UILabel()
+            pickerLabel?.font = UIFont(name: "System", size: 20.0)
+            pickerLabel?.textColor = UIColor.whiteColor()
+            pickerLabel?.textAlignment = NSTextAlignment.Center
+        }
+        pickerLabel?.text = exerciseType(rawValue: row)?.description
+        
+        return pickerLabel!
     }
 }
 
@@ -96,5 +120,4 @@ extension CreateCircuitViewController : UICollectionViewDelegateFlowLayout {
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         return CGSizeMake(self.view.frame.width, 100.0)
     }
-    
 }
