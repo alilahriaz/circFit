@@ -19,6 +19,7 @@ class CreateCircuitViewController: UIViewController, UIPickerViewDelegate, UIPic
     @IBOutlet weak var exerciseNameTextField: UITextField!
     @IBOutlet weak var durationTextField: UITextField!
     @IBOutlet weak var exerciseTypePickerView: UIPickerView!
+    @IBOutlet weak var addCircuitFormView: UIView!
     
 // MARK: UIViewController
     override func viewDidLoad() {
@@ -66,13 +67,23 @@ class CreateCircuitViewController: UIViewController, UIPickerViewDelegate, UIPic
         self.currentExerciseType = type!
         
         if (self.currentExerciseType == .Rest) {
-            self.exerciseNameTextField.text = "Rest"
-            self.exerciseNameTextField.enabled = false
+            self.restSelectedFromPickerView()
         }
         else {
-            self.exerciseNameTextField.enabled = true
-            self.exerciseNameTextField.text = ""
+            self.workoutSelectedFromPickerView()
         }
+    }
+    
+    func restSelectedFromPickerView() {
+        self.exerciseNameTextField.text = "Rest"
+        self.exerciseNameTextField.enabled = false
+        self.addCircuitFormView.backgroundColor = Constants.AppColor.RestGray
+    }
+    
+    func workoutSelectedFromPickerView() {
+        self.exerciseNameTextField.enabled = true
+        self.exerciseNameTextField.text = ""
+        self.addCircuitFormView.backgroundColor = Constants.AppColor.AppGreen
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {

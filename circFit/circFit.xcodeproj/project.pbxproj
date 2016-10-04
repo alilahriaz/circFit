@@ -14,6 +14,7 @@
 		0F3AD7681D9B2481002972B8 /* CreateCircuitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3AD7671D9B2481002972B8 /* CreateCircuitViewController.swift */; };
 		0F3AD76D1D9B2AA2002972B8 /* CircuitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3AD76C1D9B2AA2002972B8 /* CircuitCollectionViewCell.swift */; };
 		0F3AD7701D9B3CB3002972B8 /* CircuitObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3AD76F1D9B3CB3002972B8 /* CircuitObject.swift */; };
+		0F3AD7751DA45D0F002972B8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3AD7741DA45D0F002972B8 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		0F3AD7671D9B2481002972B8 /* CreateCircuitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateCircuitViewController.swift; sourceTree = "<group>"; };
 		0F3AD76C1D9B2AA2002972B8 /* CircuitCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircuitCollectionViewCell.swift; sourceTree = "<group>"; };
 		0F3AD76F1D9B3CB3002972B8 /* CircuitObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircuitObject.swift; sourceTree = "<group>"; };
+		0F3AD7741DA45D0F002972B8 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		0F3AD7511D9A29C4002972B8 /* circFit */ = {
 			isa = PBXGroup;
 			children = (
+				0F3AD7711DA44A19002972B8 /* Constants */,
 				0F3AD76E1D9B3C92002972B8 /* Models */,
 				0F3AD7691D9B2A0D002972B8 /* Views */,
 				0F3AD7641D9AE6CA002972B8 /* View Controllers */,
@@ -92,6 +95,14 @@
 				0F3AD76F1D9B3CB3002972B8 /* CircuitObject.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		0F3AD7711DA44A19002972B8 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				0F3AD7741DA45D0F002972B8 /* Constants.swift */,
+			);
+			name = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,6 +180,7 @@
 				0F3AD7681D9B2481002972B8 /* CreateCircuitViewController.swift in Sources */,
 				0F3AD76D1D9B2AA2002972B8 /* CircuitCollectionViewCell.swift in Sources */,
 				0F3AD7531D9A29C4002972B8 /* AppDelegate.swift in Sources */,
+				0F3AD7751DA45D0F002972B8 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

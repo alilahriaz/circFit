@@ -27,7 +27,7 @@ class CircuitCollectionViewCell: UICollectionViewCell {
             if self.type != nil {
                 switch self.type! {
                 case .Workout:
-                    self.backgroundColor = UIColor.init(colorLiteralRed: 80/255, green: 124/255, blue: 192/255, alpha: 1.0)
+                    self.backgroundColor = Constants.AppColor.WorkoutBlue
                 case .Rest:
                     self.backgroundColor = UIColor.grayColor()
                 }
