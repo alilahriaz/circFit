@@ -1,9 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Create Circuit View Controller-->
@@ -15,34 +16,33 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zp2-Uh-rOR" userLabel="Add Circuit Form View">
-                                <rect key="frame" x="0.0" y="20" width="600" height="100"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e.g. 30" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="er4-6o-92p" userLabel="Duration (s) Text Field">
-                                        <rect key="frame" x="174" y="25" width="150" height="50"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e.g. 30" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="er4-6o-92p" userLabel="Duration (s) Text Field">
+                                        <frame key="frameInset" minX="174" minY="25" width="150" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S6V-C8-nOI" userLabel="Enter Set button">
-                                        <rect key="frame" x="525" y="25" width="60" height="50"/>
-                                        <color key="backgroundColor" red="0.31372550129999999" green="0.48627451059999999" blue="0.75294119120000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S6V-C8-nOI" userLabel="Enter Set button">
+                                        <frame key="frameInset" minX="525" minY="25" width="60" height="50"/>
+                                        <color key="backgroundColor" red="0.25017428398132324" green="0.40075534582138062" blue="0.69971626996994019" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="5aP-hC-3ds"/>
                                             <constraint firstAttribute="width" constant="60" id="csS-FH-bde"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                                         <state key="normal" title="ADD">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="enterButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4HZ-pD-TEH"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e.g. &quot;Pushups&quot;" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ooZ-gz-yAG" userLabel="Exercise Name Text Field">
-                                        <rect key="frame" x="8" y="25" width="150" height="50"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e.g. &quot;Pushups&quot;" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ooZ-gz-yAG" userLabel="Exercise Name Text Field">
+                                        <frame key="frameInset" minX="8" minY="25" width="150" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="145" id="DDd-sx-ySD"/>
                                             <constraint firstAttribute="height" constant="50" id="GaT-XU-ygU"/>
@@ -55,23 +55,23 @@
                                             </mask>
                                         </variation>
                                     </textField>
-                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xw8-lt-WOJ">
-                                        <rect key="frame" x="344" y="20" width="161" height="60"/>
+                                    <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xw8-lt-WOJ">
+                                        <frame key="frameInset" minX="344" minY="20" width="161" height="60"/>
                                     </pickerView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workout name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HV4-U3-pbJ">
-                                        <rect key="frame" x="8" y="5" width="150" height="16"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Workout name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HV4-U3-pbJ">
+                                        <frame key="frameInset" minX="8" minY="5" width="150" height="16"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration (sec)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8q-Yc-tMt">
-                                        <rect key="frame" x="174" y="5" width="150" height="16"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Duration (sec)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8q-Yc-tMt">
+                                        <frame key="frameInset" minX="174" minY="5" width="150" height="16"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.30239657279999999" green="0.70129024620000002" blue="0.40907042729999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.30239657279999999" green="0.70129024620000002" blue="0.40907042729999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="J8q-Yc-tMt" firstAttribute="trailing" secondItem="er4-6o-92p" secondAttribute="trailing" id="8Yn-00-lgL"/>
                                     <constraint firstItem="ooZ-gz-yAG" firstAttribute="centerY" secondItem="zp2-Uh-rOR" secondAttribute="centerY" id="EW4-P8-8au"/>
@@ -94,8 +94,8 @@
                                     <constraint firstItem="J8q-Yc-tMt" firstAttribute="leading" secondItem="er4-6o-92p" secondAttribute="leading" id="wJM-rY-APH"/>
                                 </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OrL-Nd-Yxy">
-                                <rect key="frame" x="0.0" y="120" width="600" height="480"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OrL-Nd-Yxy">
+                                <frame key="frameInset" minY="120" width="600" height="480"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="3" minimumInteritemSpacing="3" id="tMb-qX-1dM">
                                     <size key="itemSize" width="599" height="65"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -111,18 +111,18 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Activity: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vJK-cp-3TD" userLabel="Workout Label">
-                                                    <rect key="frame" x="4" y="4" width="52.5" height="16"/>
+                                                    <frame key="frameInset" minX="4" minY="4" width="52.5" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxM-r3-6BE">
-                                                    <rect key="frame" x="8" y="22.5" width="449.5" height="20.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="nU1-0e-H1p"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
@@ -131,18 +131,16 @@
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Nb-f9-SyF">
-                                                    <rect key="frame" x="491" y="22" width="100" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="vAX-wP-18o"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" red="0.31372550129999999" green="0.48627451059999999" blue="0.75294119120000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.25017428398132324" green="0.40075534582138062" blue="0.69971626996994019" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="7Nb-f9-SyF" firstAttribute="leading" secondItem="cxM-r3-6BE" secondAttribute="trailing" constant="33.5" id="6nV-au-TWs"/>
                                             <constraint firstItem="cxM-r3-6BE" firstAttribute="centerY" secondItem="lX4-52-mRV" secondAttribute="centerY" id="IUH-Ks-NKc"/>
@@ -162,12 +160,11 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="OrL-Nd-Yxy" secondAttribute="bottom" id="4gh-eo-zHR"/>
                             <constraint firstItem="OrL-Nd-Yxy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4sp-E8-hrC"/>
                             <constraint firstItem="OrL-Nd-Yxy" firstAttribute="top" secondItem="zp2-Uh-rOR" secondAttribute="bottom" id="7fq-TE-6Vu"/>
-                            <constraint firstItem="OrL-Nd-Yxy" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="efh-wn-94B"/>
                             <constraint firstAttribute="trailing" secondItem="zp2-Uh-rOR" secondAttribute="trailing" id="lHC-l0-MQf"/>
                             <constraint firstItem="zp2-Uh-rOR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="lZD-fi-uSX"/>
                             <constraint firstItem="zp2-Uh-rOR" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="yIY-pA-igv"/>

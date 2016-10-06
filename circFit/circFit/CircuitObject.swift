@@ -22,16 +22,16 @@ class CircuitObject: NSObject {
 }
 
 enum exerciseType: Int, CustomStringConvertible {
-    case Workout = 0
-    case Rest = 1
+    case workout = 0
+    case rest = 1
     
-    static var count: Int { return exerciseType.Rest.rawValue + 1 }
+    static var count: Int { return exerciseType.rest.rawValue + 1 }
     
     var description: String {
         switch self {
-        case .Workout:
+        case .workout:
             return "Workout"
-        case .Rest:
+        case .rest:
             return "Rest"
         }
     }
@@ -39,9 +39,9 @@ enum exerciseType: Int, CustomStringConvertible {
     init?(value: Int) {
         switch value {
         case 0:
-            self = .Workout
+            self = .workout
         case 1:
-            self = .Rest
+            self = .rest
         default:
             return nil
         }

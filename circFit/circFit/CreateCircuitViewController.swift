@@ -11,8 +11,8 @@ import UIKit
 class CreateCircuitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     var circuitExcercises : [CircuitObject] = []
-    let cellIdentifier = String(CircuitCollectionViewCell)
-    var currentExerciseType : exerciseType = .Workout
+    let cellIdentifier = String (describing : CircuitCollectionViewCell.self)
+    var currentExerciseType : exerciseType = .workout
 
 // MARK: IBOutlets
     @IBOutlet weak var circuitCollectionView: UICollectionView!
@@ -30,7 +30,7 @@ class CreateCircuitViewController: UIViewController, UIPickerViewDelegate, UIPic
     }
     
 // MARK: IBActions
-    @IBAction func enterButtonPressed(sender: UIButton) {
+    @IBAction func enterButtonPressed(_ sender: UIButton) {
         
         if let exerciseName = self.exerciseNameTextField?.text! {
             if let duration = Int(self.durationTextField.text!) {
@@ -51,22 +51,22 @@ class CreateCircuitViewController: UIViewController, UIPickerViewDelegate, UIPic
     
 // MARK: UIPickerView DataSource
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return exerciseType.count
     }
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
     
 // MARK: UIPickerView Delegate
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let type = exerciseType(rawValue: row)
         self.currentExerciseType = type!
         
-        if (self.currentExerciseType == .Rest) {
+        if (self.currentExerciseType == .rest) {
             self.restSelectedFromPickerView()
         }
         else {
@@ -76,30 +76,30 @@ class CreateCircuitViewController: UIViewController, UIPickerViewDelegate, UIPic
     
     func restSelectedFromPickerView() {
         self.exerciseNameTextField.text = "Rest"
-        self.exerciseNameTextField.enabled = false
+        self.exerciseNameTextField.isEnabled = false
         self.addCircuitFormView.backgroundColor = Constants.AppColor.RestGray
     }
     
     func workoutSelectedFromPickerView() {
-        self.exerciseNameTextField.enabled = true
+        self.exerciseNameTextField.isEnabled = true
         self.exerciseNameTextField.text = ""
         self.addCircuitFormView.backgroundColor = Constants.AppColor.AppGreen
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         let type = exerciseType(rawValue: row)
         return type?.description
     }
     
-    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         
         var pickerLabel : UILabel?
         
         if pickerLabel == nil {
             pickerLabel = UILabel()
             pickerLabel?.font = UIFont(name: "System", size: 20.0)
-            pickerLabel?.textColor = UIColor.whiteColor()
-            pickerLabel?.textAlignment = NSTextAlignment.Center
+            pickerLabel?.textColor = UIColor.white
+            pickerLabel?.textAlignment = NSTextAlignment.center
         }
         pickerLabel?.text = exerciseType(rawValue: row)?.description
         
@@ -110,13 +110,13 @@ class CreateCircuitViewController: UIViewController, UIPickerViewDelegate, UIPic
 //UICollectionView DataSource
 extension CreateCircuitViewController : UICollectionViewDataSource {
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return circuitExcercises.count;
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! CircuitCollectionViewCell
-        let circuit = self.circuitExcercises[indexPath.item]
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! CircuitCollectionViewCell
+        let circuit = self.circuitExcercises[(indexPath as NSIndexPath).item]
         cell.workoutName = circuit.workoutName!
         cell.workoutDuration = circuit.duration!
         cell.type = circuit.type
@@ -128,7 +128,7 @@ extension CreateCircuitViewController : UICollectionViewDataSource {
 //UICollectionViewFlow Delegate
 extension CreateCircuitViewController : UICollectionViewDelegateFlowLayout {
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSizeMake(self.view.frame.width, 100.0)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: self.view.frame.width, height: 100.0)
     }
 }

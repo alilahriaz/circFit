@@ -26,10 +26,11 @@ class CircuitCollectionViewCell: UICollectionViewCell {
         didSet {
             if self.type != nil {
                 switch self.type! {
-                case .Workout:
+                case .workout:
                     self.backgroundColor = Constants.AppColor.WorkoutBlue
-                case .Rest:
-                    self.backgroundColor = UIColor.grayColor()
+                case .rest:
+                    self.backgroundColor = Constants.AppColor.RestGray
+                    
                 }
             }
         }
