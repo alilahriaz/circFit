@@ -1,12 +1,124 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ZXF-WE-L8v">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Saved Workouts View Controller-->
+        <scene sceneID="YHh-Yr-ctK">
+            <objects>
+                <viewController storyboardIdentifier="SavedWorkoutsViewController" id="ZXF-WE-L8v" customClass="SavedWorkoutsViewController" customModule="circFit" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zTB-nS-uQ2"/>
+                        <viewControllerLayoutGuide type="bottom" id="Icg-Yj-6rs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="z6g-Kw-DLD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6e8-jB-nw3" userLabel="ShowSavedOrEmptyView">
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J0x-Za-Hzq" userLabel="Workout List View">
+                                        <subviews>
+                                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HgQ-gC-t5N" userLabel="Workout List Container View">
+                                                <connections>
+                                                    <segue destination="A6H-QA-qpx" kind="embed" identifier="" id="LE0-Jn-jIf"/>
+                                                </connections>
+                                            </containerView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="HgQ-gC-t5N" firstAttribute="centerY" secondItem="J0x-Za-Hzq" secondAttribute="centerY" id="af9-0N-JZv"/>
+                                            <constraint firstItem="HgQ-gC-t5N" firstAttribute="centerX" secondItem="J0x-Za-Hzq" secondAttribute="centerX" id="hP5-z8-Y1e"/>
+                                            <constraint firstItem="HgQ-gC-t5N" firstAttribute="height" secondItem="J0x-Za-Hzq" secondAttribute="height" id="rTH-gZ-nrO"/>
+                                            <constraint firstItem="HgQ-gC-t5N" firstAttribute="width" secondItem="J0x-Za-Hzq" secondAttribute="width" id="wxK-wt-Bcu"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hdn-ZI-Bmp" userLabel="Empty state View">
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have no saved workouts. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJV-Se-vuZ">
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                                <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create a workout using the button below" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgb-wk-kvh">
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                                <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="cgb-wk-kvh" firstAttribute="top" secondItem="TJV-Se-vuZ" secondAttribute="bottom" constant="8" id="301-9P-u5I"/>
+                                            <constraint firstItem="TJV-Se-vuZ" firstAttribute="top" secondItem="hdn-ZI-Bmp" secondAttribute="top" constant="151" id="HuR-49-GSX"/>
+                                            <constraint firstItem="TJV-Se-vuZ" firstAttribute="centerX" secondItem="hdn-ZI-Bmp" secondAttribute="centerX" id="MpK-7a-gbh"/>
+                                            <constraint firstItem="cgb-wk-kvh" firstAttribute="width" secondItem="TJV-Se-vuZ" secondAttribute="width" id="SYC-ZE-jOc"/>
+                                            <constraint firstItem="cgb-wk-kvh" firstAttribute="centerX" secondItem="TJV-Se-vuZ" secondAttribute="centerX" id="cQi-x3-leO"/>
+                                            <constraint firstItem="TJV-Se-vuZ" firstAttribute="width" secondItem="hdn-ZI-Bmp" secondAttribute="width" multiplier="0.5" id="g1v-m6-edn"/>
+                                            <constraint firstItem="cgb-wk-kvh" firstAttribute="height" secondItem="TJV-Se-vuZ" secondAttribute="height" id="wk4-eh-vye"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="J0x-Za-Hzq" firstAttribute="centerY" secondItem="6e8-jB-nw3" secondAttribute="centerY" id="17K-q0-P5s"/>
+                                    <constraint firstItem="hdn-ZI-Bmp" firstAttribute="height" secondItem="6e8-jB-nw3" secondAttribute="height" id="1yi-fy-fiu"/>
+                                    <constraint firstItem="J0x-Za-Hzq" firstAttribute="height" secondItem="6e8-jB-nw3" secondAttribute="height" id="2Hu-ZR-vQ8"/>
+                                    <constraint firstItem="hdn-ZI-Bmp" firstAttribute="centerY" secondItem="6e8-jB-nw3" secondAttribute="centerY" id="7xB-2J-SEt"/>
+                                    <constraint firstItem="hdn-ZI-Bmp" firstAttribute="width" secondItem="6e8-jB-nw3" secondAttribute="width" id="Baf-1f-CMh"/>
+                                    <constraint firstItem="hdn-ZI-Bmp" firstAttribute="centerX" secondItem="6e8-jB-nw3" secondAttribute="centerX" id="X4P-Vv-1es"/>
+                                    <constraint firstItem="J0x-Za-Hzq" firstAttribute="centerX" secondItem="6e8-jB-nw3" secondAttribute="centerX" id="uO5-Ec-nRy"/>
+                                    <constraint firstItem="J0x-Za-Hzq" firstAttribute="width" secondItem="6e8-jB-nw3" secondAttribute="width" id="vo8-Dp-sWn"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rno-Q9-Zia" userLabel="Create Workout View">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u3k-1w-Tha">
+                                        <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="22"/>
+                                        <state key="normal" title="Create a Workout">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="createWorkoutButtonPressed:" destination="ZXF-WE-L8v" eventType="touchUpInside" id="kvv-E9-qE4"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="showCreateWorkoutViewController" id="PJh-YQ-4zi"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="u3k-1w-Tha" firstAttribute="centerX" secondItem="rno-Q9-Zia" secondAttribute="centerX" id="6nL-hw-yat"/>
+                                    <constraint firstItem="u3k-1w-Tha" firstAttribute="height" secondItem="rno-Q9-Zia" secondAttribute="height" id="SY2-88-pu4"/>
+                                    <constraint firstAttribute="height" constant="65" id="Spk-8L-V9A"/>
+                                    <constraint firstItem="u3k-1w-Tha" firstAttribute="width" secondItem="rno-Q9-Zia" secondAttribute="width" id="rzm-pp-xrv"/>
+                                    <constraint firstItem="u3k-1w-Tha" firstAttribute="centerY" secondItem="rno-Q9-Zia" secondAttribute="centerY" id="y0b-AN-rS8"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6e8-jB-nw3" firstAttribute="width" secondItem="z6g-Kw-DLD" secondAttribute="width" id="2X7-vi-9pQ"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="rno-Q9-Zia" secondAttribute="bottom" id="IZt-B2-LBl"/>
+                            <constraint firstItem="rno-Q9-Zia" firstAttribute="centerX" secondItem="z6g-Kw-DLD" secondAttribute="centerX" id="WwY-oq-hWa"/>
+                            <constraint firstItem="rno-Q9-Zia" firstAttribute="top" secondItem="6e8-jB-nw3" secondAttribute="bottom" id="mPL-Am-GeE"/>
+                            <constraint firstItem="rno-Q9-Zia" firstAttribute="width" secondItem="z6g-Kw-DLD" secondAttribute="width" id="oRX-X0-vn9"/>
+                            <constraint firstItem="6e8-jB-nw3" firstAttribute="centerX" secondItem="z6g-Kw-DLD" secondAttribute="centerX" id="vgq-ah-Ncq"/>
+                            <constraint firstItem="6e8-jB-nw3" firstAttribute="top" secondItem="zTB-nS-uQ2" secondAttribute="bottom" id="zKg-e3-IFb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="createWorkoutView" destination="rno-Q9-Zia" id="dy2-pP-Amr"/>
+                        <outlet property="noSavedView" destination="hdn-ZI-Bmp" id="Mlm-Xi-kBK"/>
+                        <outlet property="savedWorkoutsListView" destination="J0x-Za-Hzq" id="eKC-Sz-Tra"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XK3-dY-dSc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-922.39999999999998" y="421.43928035982015"/>
+        </scene>
         <!--Create Circuit View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -173,6 +285,20 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="144.80000000000001" y="421.43928035982015"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="D98-Rp-lsG">
+            <objects>
+                <viewController id="A6H-QA-qpx" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OE3-jX-teF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="582"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nAs-jU-DdU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-922" y="1103"/>
         </scene>
     </scenes>
 </document>
