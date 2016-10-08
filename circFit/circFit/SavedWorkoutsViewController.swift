@@ -37,7 +37,7 @@ class SavedWorkoutsViewController: UIViewController {
     }
     
     @IBAction func createWorkoutButtonPressed(_ sender: AnyObject) {
-        self.performSegue(withIdentifier: "showCreateWorkoutViewController", sender: self)
+//        self.performSegue(withIdentifier: "showCreateWorkoutViewController", sender: self)
     }
     
 
