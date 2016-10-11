@@ -287,6 +287,9 @@
                                         <state key="normal" title="Start">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="sNu-KR-FBT" kind="presentation" id="J8P-Km-Dii"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -324,6 +327,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="144.80000000000001" y="421.43928035982015"/>
+        </scene>
+        <!--Timer screen-->
+        <scene sceneID="xyX-8p-20X">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="TimerStoryboardSegue" storyboardName="Timer screen" id="sNu-KR-FBT" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DQI-KD-Nsa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="145" y="794"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="D98-Rp-lsG">
