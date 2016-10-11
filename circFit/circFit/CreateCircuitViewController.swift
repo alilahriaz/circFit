@@ -39,6 +39,8 @@ class CreateCircuitViewController: UIViewController, UIPickerViewDelegate, UIPic
                 self.circuitExcercises.append(newCircuitEntry)
                 
                 self.circuitCollectionView.reloadData()
+                let bottomIndex : IndexPath = IndexPath.init(item: self.circuitExcercises.count-1, section: 0)
+                self.circuitCollectionView.scrollToItem(at: bottomIndex, at: UICollectionViewScrollPosition.bottom, animated: true)
             }
             else {
                 print("Please add a duration")
@@ -107,7 +109,7 @@ class CreateCircuitViewController: UIViewController, UIPickerViewDelegate, UIPic
     }
 }
 
-//UICollectionView DataSource
+//MARK: UICollectionView DataSource
 extension CreateCircuitViewController : UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -125,7 +127,7 @@ extension CreateCircuitViewController : UICollectionViewDataSource {
     }
 }
 
-//UICollectionViewFlow Delegate
+//MARK: UICollectionViewFlow Delegate
 extension CreateCircuitViewController : UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

@@ -15,6 +15,9 @@
 		0F3AD76D1D9B2AA2002972B8 /* CircuitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3AD76C1D9B2AA2002972B8 /* CircuitCollectionViewCell.swift */; };
 		0F3AD7701D9B3CB3002972B8 /* CircuitObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3AD76F1D9B3CB3002972B8 /* CircuitObject.swift */; };
 		0F3AD7751DA45D0F002972B8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3AD7741DA45D0F002972B8 /* Constants.swift */; };
+		0F7072441DA725A1007B1ECA /* SavedWorkoutsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7072431DA725A1007B1ECA /* SavedWorkoutsViewController.swift */; };
+		0F7072461DA86A88007B1ECA /* SavedWorkoutsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7072451DA86A88007B1ECA /* SavedWorkoutsNavigationController.swift */; };
+		0F7072491DAC3EDF007B1ECA /* Timer screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F7072481DAC3EDF007B1ECA /* Timer screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		0F3AD76C1D9B2AA2002972B8 /* CircuitCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircuitCollectionViewCell.swift; sourceTree = "<group>"; };
 		0F3AD76F1D9B3CB3002972B8 /* CircuitObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircuitObject.swift; sourceTree = "<group>"; };
 		0F3AD7741DA45D0F002972B8 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0F7072431DA725A1007B1ECA /* SavedWorkoutsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedWorkoutsViewController.swift; sourceTree = "<group>"; };
+		0F7072451DA86A88007B1ECA /* SavedWorkoutsNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedWorkoutsNavigationController.swift; sourceTree = "<group>"; };
+		0F7072481DAC3EDF007B1ECA /* Timer screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Timer screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,12 +66,12 @@
 		0F3AD7511D9A29C4002972B8 /* circFit */ = {
 			isa = PBXGroup;
 			children = (
+				0F7072471DAC3EB6007B1ECA /* Storyboards */,
 				0F3AD7711DA44A19002972B8 /* Constants */,
 				0F3AD76E1D9B3C92002972B8 /* Models */,
 				0F3AD7691D9B2A0D002972B8 /* Views */,
 				0F3AD7641D9AE6CA002972B8 /* View Controllers */,
 				0F3AD7521D9A29C4002972B8 /* AppDelegate.swift */,
-				0F3AD7561D9A29C4002972B8 /* Main.storyboard */,
 				0F3AD7591D9A29C5002972B8 /* Assets.xcassets */,
 				0F3AD75B1D9A29C5002972B8 /* LaunchScreen.storyboard */,
 				0F3AD75E1D9A29C5002972B8 /* Info.plist */,
@@ -77,6 +83,8 @@
 			isa = PBXGroup;
 			children = (
 				0F3AD7671D9B2481002972B8 /* CreateCircuitViewController.swift */,
+				0F7072431DA725A1007B1ECA /* SavedWorkoutsViewController.swift */,
+				0F7072451DA86A88007B1ECA /* SavedWorkoutsNavigationController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -103,6 +111,15 @@
 				0F3AD7741DA45D0F002972B8 /* Constants.swift */,
 			);
 			name = Constants;
+			sourceTree = "<group>";
+		};
+		0F7072471DAC3EB6007B1ECA /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				0F3AD7561D9A29C4002972B8 /* Main.storyboard */,
+				0F7072481DAC3EDF007B1ECA /* Timer screen.storyboard */,
+			);
+			name = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,6 +184,7 @@
 				0F3AD75D1D9A29C5002972B8 /* LaunchScreen.storyboard in Resources */,
 				0F3AD75A1D9A29C5002972B8 /* Assets.xcassets in Resources */,
 				0F3AD7581D9A29C4002972B8 /* Main.storyboard in Resources */,
+				0F7072491DAC3EDF007B1ECA /* Timer screen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,9 +195,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F7072441DA725A1007B1ECA /* SavedWorkoutsViewController.swift in Sources */,
 				0F3AD7701D9B3CB3002972B8 /* CircuitObject.swift in Sources */,
 				0F3AD7681D9B2481002972B8 /* CreateCircuitViewController.swift in Sources */,
 				0F3AD76D1D9B2AA2002972B8 /* CircuitCollectionViewCell.swift in Sources */,
+				0F7072461DA86A88007B1ECA /* SavedWorkoutsNavigationController.swift in Sources */,
 				0F3AD7531D9A29C4002972B8 /* AppDelegate.swift in Sources */,
 				0F3AD7751DA45D0F002972B8 /* Constants.swift in Sources */,
 			);
