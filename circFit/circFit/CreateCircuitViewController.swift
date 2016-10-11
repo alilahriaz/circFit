@@ -51,6 +51,8 @@ class CreateCircuitViewController: UIViewController, UIPickerViewDelegate, UIPic
         }
     }
     
+    @IBAction func unwindToCreateAWorkoutScreen(segue: UIStoryboardSegue) {}
+    
 // MARK: UIPickerView DataSource
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
