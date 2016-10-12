@@ -12,8 +12,10 @@ class TimerScreenViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        if (CurrentWorkoutSingleton.sharedInstance.workoutArray.count > 0) {
+            
+        }
     }
     
     @IBAction func closeButtonPressed(_ sender: AnyObject) {

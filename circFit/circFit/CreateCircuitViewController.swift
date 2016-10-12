@@ -34,9 +34,9 @@ class CreateCircuitViewController: UIViewController, UIPickerViewDelegate, UIPic
         
         if let exerciseName = self.exerciseNameTextField?.text! {
             if let duration = Int(self.durationTextField.text!) {
-                
                 let newCircuitEntry = CircuitObject(workoutName: exerciseName , duration : duration, type: currentExerciseType)
                 self.circuitExcercises.append(newCircuitEntry)
+                CurrentWorkoutSingleton.sharedInstance.workoutArray.append(newCircuitEntry)
                 
                 self.circuitCollectionView.reloadData()
                 let bottomIndex : IndexPath = IndexPath.init(item: self.circuitExcercises.count-1, section: 0)

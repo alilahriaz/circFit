@@ -19,6 +19,7 @@
 		0F7072461DA86A88007B1ECA /* SavedWorkoutsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7072451DA86A88007B1ECA /* SavedWorkoutsNavigationController.swift */; };
 		0F7072491DAC3EDF007B1ECA /* Timer screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F7072481DAC3EDF007B1ECA /* Timer screen.storyboard */; };
 		0F70724B1DAC86C8007B1ECA /* TimerScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F70724A1DAC86C8007B1ECA /* TimerScreenViewController.swift */; };
+		0F70724D1DAD7FED007B1ECA /* CurrentWorkoutSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F70724C1DAD7FED007B1ECA /* CurrentWorkoutSingleton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		0F7072451DA86A88007B1ECA /* SavedWorkoutsNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedWorkoutsNavigationController.swift; sourceTree = "<group>"; };
 		0F7072481DAC3EDF007B1ECA /* Timer screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Timer screen.storyboard"; sourceTree = "<group>"; };
 		0F70724A1DAC86C8007B1ECA /* TimerScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerScreenViewController.swift; sourceTree = "<group>"; };
+		0F70724C1DAD7FED007B1ECA /* CurrentWorkoutSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWorkoutSingleton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				0F3AD7741DA45D0F002972B8 /* Constants.swift */,
+				0F70724C1DAD7FED007B1ECA /* CurrentWorkoutSingleton.swift */,
 			);
 			name = Constants;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F70724D1DAD7FED007B1ECA /* CurrentWorkoutSingleton.swift in Sources */,
 				0F7072441DA725A1007B1ECA /* SavedWorkoutsViewController.swift in Sources */,
 				0F3AD7701D9B3CB3002972B8 /* CircuitObject.swift in Sources */,
 				0F70724B1DAC86C8007B1ECA /* TimerScreenViewController.swift in Sources */,
