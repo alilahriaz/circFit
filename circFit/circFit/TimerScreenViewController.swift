@@ -10,16 +10,18 @@ import UIKit
 
 class TimerScreenViewController: UIViewController {
 
+    @IBOutlet var timerScreenView: TimerScreenView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if (CurrentWorkoutSingleton.sharedInstance.workoutArray.count > 0) {
-            
+            self.timerScreenView.currentActivityName.text = CurrentWorkoutSingleton.sharedInstance.workoutArray.first?.workoutName
         }
     }
     
     @IBAction func closeButtonPressed(_ sender: AnyObject) {
-        self.performSegue(withIdentifier: "unwindToCreateAWorkoutScreen", sender: self)
+        self.performSegue(withIdentifier:  Constants.SegueIdentifiers.UnwindToCreateWorkoutScreen , sender: self)
     }
 
 }

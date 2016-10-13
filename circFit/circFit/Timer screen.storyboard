@@ -15,7 +15,7 @@
                         <viewControllerLayoutGuide type="top" id="LfG-Cz-tNb"/>
                         <viewControllerLayoutGuide type="bottom" id="w22-9G-6mS"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="plV-C3-P7a">
+                    <view key="view" contentMode="scaleToFill" id="plV-C3-P7a" customClass="TimerScreenView" customModule="circFit" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -104,8 +104,13 @@
                             <constraint firstItem="EhO-4U-OS5" firstAttribute="centerX" secondItem="plV-C3-P7a" secondAttribute="centerX" id="pb2-9C-QG0"/>
                             <constraint firstItem="quE-1z-vUh" firstAttribute="centerX" secondItem="plV-C3-P7a" secondAttribute="centerX" id="ud0-rl-fdU"/>
                         </constraints>
+                        <connections>
+                            <outlet property="currentActivityName" destination="MRj-40-SQa" id="OpV-dn-Lxi"/>
+                            <outlet property="nextActivityName" destination="nqQ-CE-6k9" id="RW2-pw-1Ew"/>
+                        </connections>
                     </view>
                     <connections>
+                        <outlet property="timerScreenView" destination="plV-C3-P7a" id="nnb-rJ-XNT"/>
                         <segue destination="gqg-lF-0h9" kind="unwind" identifier="unwindToCreateAWorkoutScreen" unwindAction="unwindToCreateAWorkoutScreenWithSegue:" id="giD-Ae-YtX"/>
                     </connections>
                 </viewController>

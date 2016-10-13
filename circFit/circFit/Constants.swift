@@ -15,5 +15,10 @@ class Constants: NSObject {
         static let WorkoutBlue : UIColor = UIColor.init(red: 80/255, green: 124/255, blue: 192/255, alpha: 1.0)
         static let RestGray : UIColor = UIColor.init(red: 127/255, green: 127/255, blue: 127/255, alpha: 1.0)
     }
+    
+    struct SegueIdentifiers {
+        static let ShowTimerScreen : String = "TimerStoryboardSegue"
+        static let UnwindToCreateWorkoutScreen : String = "unwindToCreateAWorkoutScreen"
+    }
 
 }

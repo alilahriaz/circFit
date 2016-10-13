@@ -51,7 +51,22 @@ class CreateCircuitViewController: UIViewController, UIPickerViewDelegate, UIPic
         }
     }
     
+    @IBAction func startButtonPressed(_ sender: AnyObject) {
+        if (CurrentWorkoutSingleton.sharedInstance.workoutArray.count > 0) {
+            self.performSegue(withIdentifier: Constants.SegueIdentifiers.ShowTimerScreen, sender: self)
+        }
+        else {
+            self.showAlertViewForEmptyActivities()
+        }
+    }
+    
     @IBAction func unwindToCreateAWorkoutScreen(segue: UIStoryboardSegue) {}
+    
+    func showAlertViewForEmptyActivities() {
+        let noActivitiesAlertView = UIAlertController(title: "No activities added", message: "Please add activities before starting a workout", preferredStyle: UIAlertControllerStyle.alert)
+        noActivitiesAlertView.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
+        self.present(noActivitiesAlertView, animated: true, completion: nil)
+    }
     
 // MARK: UIPickerView DataSource
     

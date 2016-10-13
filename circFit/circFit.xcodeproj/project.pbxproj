@@ -20,6 +20,7 @@
 		0F7072491DAC3EDF007B1ECA /* Timer screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F7072481DAC3EDF007B1ECA /* Timer screen.storyboard */; };
 		0F70724B1DAC86C8007B1ECA /* TimerScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F70724A1DAC86C8007B1ECA /* TimerScreenViewController.swift */; };
 		0F70724D1DAD7FED007B1ECA /* CurrentWorkoutSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F70724C1DAD7FED007B1ECA /* CurrentWorkoutSingleton.swift */; };
+		0F70724F1DAF0633007B1ECA /* TimerScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F70724E1DAF0633007B1ECA /* TimerScreenView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		0F7072481DAC3EDF007B1ECA /* Timer screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Timer screen.storyboard"; sourceTree = "<group>"; };
 		0F70724A1DAC86C8007B1ECA /* TimerScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerScreenViewController.swift; sourceTree = "<group>"; };
 		0F70724C1DAD7FED007B1ECA /* CurrentWorkoutSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWorkoutSingleton.swift; sourceTree = "<group>"; };
+		0F70724E1DAF0633007B1ECA /* TimerScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				0F3AD76C1D9B2AA2002972B8 /* CircuitCollectionViewCell.swift */,
+				0F70724E1DAF0633007B1ECA /* TimerScreenView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 				0F3AD76D1D9B2AA2002972B8 /* CircuitCollectionViewCell.swift in Sources */,
 				0F7072461DA86A88007B1ECA /* SavedWorkoutsNavigationController.swift in Sources */,
 				0F3AD7531D9A29C4002972B8 /* AppDelegate.swift in Sources */,
+				0F70724F1DAF0633007B1ECA /* TimerScreenView.swift in Sources */,
 				0F3AD7751DA45D0F002972B8 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
