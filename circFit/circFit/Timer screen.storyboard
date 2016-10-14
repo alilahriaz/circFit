@@ -41,7 +41,7 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EhO-4U-OS5" userLabel="Current View">
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 s" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OiQ-Oc-D3J">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 s" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OiQ-Oc-D3J" userLabel="Time Remaining Label">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="71" id="Q53-3c-2ii"/>
                                         </constraints>
@@ -49,7 +49,7 @@
                                         <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pushups" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MRj-40-SQa">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pushups" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MRj-40-SQa" userLabel="Current Activity Label">
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="42"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -67,7 +67,7 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yxo-6J-9sS" userLabel="Up Next View">
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rest" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nqQ-CE-6k9">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rest" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nqQ-CE-6k9" userLabel="UpNext Activity Label">
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -105,8 +105,9 @@
                             <constraint firstItem="quE-1z-vUh" firstAttribute="centerX" secondItem="plV-C3-P7a" secondAttribute="centerX" id="ud0-rl-fdU"/>
                         </constraints>
                         <connections>
-                            <outlet property="currentActivityName" destination="MRj-40-SQa" id="OpV-dn-Lxi"/>
-                            <outlet property="nextActivityName" destination="nqQ-CE-6k9" id="RW2-pw-1Ew"/>
+                            <outlet property="currentActivityLabel" destination="MRj-40-SQa" id="lnZ-eB-brw"/>
+                            <outlet property="currentTimeRemainingLabel" destination="OiQ-Oc-D3J" id="opE-3B-vQd"/>
+                            <outlet property="nextActivityLabel" destination="nqQ-CE-6k9" id="n0t-Kp-Egf"/>
                         </connections>
                     </view>
                     <connections>

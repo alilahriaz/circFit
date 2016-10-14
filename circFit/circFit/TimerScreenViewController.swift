@@ -16,7 +16,13 @@ class TimerScreenViewController: UIViewController {
         super.viewDidLoad()
         
         if (CurrentWorkoutSingleton.sharedInstance.workoutArray.count > 0) {
-            self.timerScreenView.currentActivityName.text = CurrentWorkoutSingleton.sharedInstance.workoutArray.first?.workoutName
+            self.timerScreenView.currentActivityName = (CurrentWorkoutSingleton.sharedInstance.workoutArray.first?.workoutName)!
+            if (CurrentWorkoutSingleton.sharedInstance.workoutArray.count > 1) {
+                self.timerScreenView.upNextActivityName = (CurrentWorkoutSingleton.sharedInstance.workoutArray[1].workoutName)!
+            }
+            else {
+                self.timerScreenView.noUpNextActivity()
+            }
         }
     }
     
