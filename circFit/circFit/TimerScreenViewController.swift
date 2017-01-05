@@ -11,14 +11,51 @@ import UIKit
 class TimerScreenViewController: UIViewController {
 
     @IBOutlet var timerScreenView: TimerScreenView!
+    @IBOutlet weak var closeButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if (CurrentWorkoutSingleton.sharedInstance.workoutArray.count > 0) {
-            self.timerScreenView.currentActivityName = (CurrentWorkoutSingleton.sharedInstance.workoutArray.first?.workoutName)!
-            if (CurrentWorkoutSingleton.sharedInstance.workoutArray.count > 1) {
-                self.timerScreenView.upNextActivityName = (CurrentWorkoutSingleton.sharedInstance.workoutArray[1].workoutName)!
+        updateWorkoutLabels()
+        updateTimeLeftLabel()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(timerTriggered), name: Notification.Name(rawValue: Constants.TimerNotifications.TimerTriggeredEverySecond), object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: Notification.Name(rawValue: Constants.TimerNotifications.NewTimerInitialized), object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateWorkoutLabels()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        NotificationCenter.default.post(name: Notification.Name(rawValue: Constants.TimerNotifications.StartTimer), object: nil, userInfo: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateWorkoutLabels), name: Notification.Name(rawValue: Constants.TimerNotifications.NewTimerInitialized), object: nil)
+    }
+    
+    func timerTriggered() {
+        updateTimeLeftLabel()
+    }
+    
+    func updateTimeLeftLabel() {
+        self.timerScreenView.currentActivityTimeRemaining = CurrentWorkoutSingleton.sharedInstance.currentWorkoutRemainingDuration
+    }
+    
+    func updateWorkoutLabels() {
+        var workoutArray = CurrentWorkoutSingleton.sharedInstance.workoutArray
+        self.timerScreenView.currentActivityTimeRemaining = (CurrentWorkoutSingleton.sharedInstance.workoutArray.first?.duration)!
+
+        if let currentActivity = workoutArray.first {
+            self.timerScreenView.currentActivityName = currentActivity.workoutName!
+            
+            if (workoutArray.count > 1) {
+                let upNextActivity = workoutArray[1]
+                self.timerScreenView.upNextActivityName = upNextActivity.workoutName!
             }
             else {
                 self.timerScreenView.noUpNextActivity()

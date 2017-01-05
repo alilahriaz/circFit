@@ -9,6 +9,7 @@
 import UIKit
 
 class TimerScreenView: UIView {
+    
     // MARK: Private Outlets
     @IBOutlet weak fileprivate var currentActivityLabel : UILabel!
     @IBOutlet weak fileprivate var nextActivityLabel : UILabel!
@@ -17,16 +18,19 @@ class TimerScreenView: UIView {
     // MARK: Properties/setters
     var currentActivityName : String = "" {
         didSet {
+            print (currentActivityName)
             self.currentActivityLabel.text = currentActivityName
         }
     }
     var upNextActivityName : String = "" {
         didSet {
+            print (upNextActivityName)
             self.nextActivityLabel.text = upNextActivityName
         }
     }
     var currentActivityTimeRemaining = 0 {
         didSet {
+            print (currentActivityTimeRemaining)
             self.currentTimeRemainingLabel.text = String(currentActivityTimeRemaining) + " s"
         }
     }

@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Md5-8Q-GFd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Md5-8Q-GFd">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,8 +23,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="quE-1z-vUh" userLabel="Close View">
+                                <rect key="frame" x="0.0" y="20" width="375" height="46.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LIr-bs-f9u">
+                                        <rect key="frame" x="325" y="0.0" width="50" height="46.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="WOm-Bh-T8W"/>
                                         </constraints>
@@ -40,8 +45,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EhO-4U-OS5" userLabel="Current View">
+                                <rect key="frame" x="0.0" y="66.5" width="375" height="400.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 s" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OiQ-Oc-D3J" userLabel="Time Remaining Label">
+                                        <rect key="frame" x="0.0" y="25" width="375" height="71"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="71" id="Q53-3c-2ii"/>
                                         </constraints>
@@ -50,6 +57,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pushups" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MRj-40-SQa" userLabel="Current Activity Label">
+                                        <rect key="frame" x="0.0" y="155" width="375" height="49"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="42"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -66,13 +74,16 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yxo-6J-9sS" userLabel="Up Next View">
+                                <rect key="frame" x="0.0" y="467" width="375" height="146.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rest" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nqQ-CE-6k9" userLabel="UpNext Activity Label">
+                                        <rect key="frame" x="0.0" y="47.5" width="375" height="42"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Up Next" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fA8-dz-ggv">
+                                        <rect key="frame" x="0.0" y="10" width="375" height="27.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -88,20 +99,44 @@
                                     <constraint firstItem="nqQ-CE-6k9" firstAttribute="top" secondItem="fA8-dz-ggv" secondAttribute="bottom" constant="10" id="nMU-zX-9Sk"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lta-v2-oOM" userLabel="Start Button View">
+                                <rect key="frame" x="0.0" y="613.5" width="375" height="53.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="raS-Jh-IIk">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="53.5"/>
+                                        <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="21"/>
+                                        <state key="normal" title="Pause">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="raS-Jh-IIk" firstAttribute="centerX" secondItem="lta-v2-oOM" secondAttribute="centerX" id="BBb-gL-LFO"/>
+                                    <constraint firstItem="raS-Jh-IIk" firstAttribute="height" secondItem="lta-v2-oOM" secondAttribute="height" id="DKR-MD-ffs"/>
+                                    <constraint firstItem="raS-Jh-IIk" firstAttribute="width" secondItem="lta-v2-oOM" secondAttribute="width" id="b4f-p6-6tA"/>
+                                    <constraint firstItem="raS-Jh-IIk" firstAttribute="centerY" secondItem="lta-v2-oOM" secondAttribute="centerY" id="gHM-Zv-1My"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="EhO-4U-OS5" firstAttribute="height" secondItem="plV-C3-P7a" secondAttribute="height" multiplier="0.6" id="2NA-12-gf1"/>
                             <constraint firstItem="quE-1z-vUh" firstAttribute="top" secondItem="LfG-Cz-tNb" secondAttribute="bottom" id="3us-Sc-pXF"/>
+                            <constraint firstItem="lta-v2-oOM" firstAttribute="width" secondItem="plV-C3-P7a" secondAttribute="width" id="BkI-iD-rNd"/>
                             <constraint firstItem="Yxo-6J-9sS" firstAttribute="width" secondItem="plV-C3-P7a" secondAttribute="width" id="DxZ-mV-hhC"/>
                             <constraint firstItem="EhO-4U-OS5" firstAttribute="top" secondItem="quE-1z-vUh" secondAttribute="bottom" id="MSA-Ry-RE1"/>
                             <constraint firstItem="Yxo-6J-9sS" firstAttribute="centerX" secondItem="plV-C3-P7a" secondAttribute="centerX" id="Mck-so-xxH"/>
+                            <constraint firstItem="lta-v2-oOM" firstAttribute="top" secondItem="Yxo-6J-9sS" secondAttribute="bottom" id="WGH-yz-tr8"/>
+                            <constraint firstItem="lta-v2-oOM" firstAttribute="leading" secondItem="plV-C3-P7a" secondAttribute="leading" id="WIJ-oV-MPY"/>
                             <constraint firstItem="EhO-4U-OS5" firstAttribute="width" secondItem="plV-C3-P7a" secondAttribute="width" id="ab6-0X-FjO"/>
                             <constraint firstItem="quE-1z-vUh" firstAttribute="height" secondItem="plV-C3-P7a" secondAttribute="height" multiplier="0.07" id="eCp-SS-Bxj"/>
+                            <constraint firstItem="lta-v2-oOM" firstAttribute="height" secondItem="plV-C3-P7a" secondAttribute="height" multiplier="0.08" id="fmC-hf-u0v"/>
                             <constraint firstItem="quE-1z-vUh" firstAttribute="width" secondItem="plV-C3-P7a" secondAttribute="width" id="g7F-fK-OLd"/>
-                            <constraint firstItem="w22-9G-6mS" firstAttribute="top" secondItem="Yxo-6J-9sS" secondAttribute="bottom" id="jPS-p9-WCQ"/>
                             <constraint firstItem="Yxo-6J-9sS" firstAttribute="top" secondItem="EhO-4U-OS5" secondAttribute="bottom" id="pKf-Ck-rL3"/>
                             <constraint firstItem="EhO-4U-OS5" firstAttribute="centerX" secondItem="plV-C3-P7a" secondAttribute="centerX" id="pb2-9C-QG0"/>
+                            <constraint firstItem="w22-9G-6mS" firstAttribute="top" secondItem="lta-v2-oOM" secondAttribute="bottom" id="qhr-Nj-kzT"/>
                             <constraint firstItem="quE-1z-vUh" firstAttribute="centerX" secondItem="plV-C3-P7a" secondAttribute="centerX" id="ud0-rl-fdU"/>
                         </constraints>
                         <connections>
@@ -111,6 +146,7 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="closeButton" destination="LIr-bs-f9u" id="Cfa-V4-IC7"/>
                         <outlet property="timerScreenView" destination="plV-C3-P7a" id="nnb-rJ-XNT"/>
                         <segue destination="gqg-lF-0h9" kind="unwind" identifier="unwindToCreateAWorkoutScreen" unwindAction="unwindToCreateAWorkoutScreenWithSegue:" id="giD-Ae-YtX"/>
                     </connections>

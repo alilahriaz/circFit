@@ -8,11 +8,16 @@
 
 import UIKit
 
+let TestCodeEnabled = false
+
 class CreateCircuitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     var circuitExcercises : [CircuitObject] = []
     let cellIdentifier = String (describing : CircuitCollectionViewCell.self)
     var currentExerciseType : exerciseType = .workout
+    
+    //TEST
+    var testCount = 1
 
 // MARK: IBOutlets
     @IBOutlet weak var circuitCollectionView: UICollectionView!
@@ -20,6 +25,7 @@ class CreateCircuitViewController: UIViewController, UIPickerViewDelegate, UIPic
     @IBOutlet weak var durationTextField: UITextField!
     @IBOutlet weak var exerciseTypePickerView: UIPickerView!
     @IBOutlet weak var addCircuitFormView: UIView!
+
     
 // MARK: UIViewController
     override func viewDidLoad() {
@@ -27,11 +33,24 @@ class CreateCircuitViewController: UIViewController, UIPickerViewDelegate, UIPic
         
         self.exerciseTypePickerView.delegate = self;
         self.exerciseTypePickerView.dataSource = self;
+        
+        self.exerciseNameTextField.autocorrectionType = .no
+        self.circuitCollectionView.keyboardDismissMode = .interactive
+        self.circuitCollectionView.alwaysBounceVertical = true
+
     }
     
 // MARK: IBActions
     @IBAction func enterButtonPressed(_ sender: UIButton) {
-        
+        if (TestCodeEnabled) {
+            generateTestWorkoutEntries()
+        }
+        else {
+            addWorkoutEntry()
+        }
+    }
+    
+    func addWorkoutEntry() {
         if let exerciseName = self.exerciseNameTextField?.text! {
             if let duration = Int(self.durationTextField.text!) {
                 let newCircuitEntry = CircuitObject(workoutName: exerciseName , duration : duration, type: currentExerciseType)
@@ -49,7 +68,25 @@ class CreateCircuitViewController: UIViewController, UIPickerViewDelegate, UIPic
         else {
             print("Please add an exercise name")
         }
+        
     }
+    
+// MARK : Test code
+    func generateTestWorkoutEntries() {
+        let newCircuitEntry = CircuitObject(workoutName: "#" + String(testCount), duration: testCount * 4, type: currentExerciseType)
+        testCount += 1
+        self.exerciseNameTextField.resignFirstResponder()
+        self.durationTextField.resignFirstResponder()
+        
+        self.circuitExcercises.append(newCircuitEntry)
+        CurrentWorkoutSingleton.sharedInstance.workoutArray.append(newCircuitEntry)
+        
+        self.circuitCollectionView.reloadData()
+        let bottomIndex : IndexPath = IndexPath.init(item: self.circuitExcercises.count-1, section: 0)
+        self.circuitCollectionView.scrollToItem(at: bottomIndex, at: UICollectionViewScrollPosition.bottom, animated: true)
+    }
+    
+// MARK: Navigation
     
     @IBAction func startButtonPressed(_ sender: AnyObject) {
         if (CurrentWorkoutSingleton.sharedInstance.workoutArray.count > 0) {

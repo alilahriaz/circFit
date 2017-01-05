@@ -20,5 +20,12 @@ class Constants: NSObject {
         static let ShowTimerScreen : String = "TimerStoryboardSegue"
         static let UnwindToCreateWorkoutScreen : String = "unwindToCreateAWorkoutScreen"
     }
+    
+    struct TimerNotifications {
+        static let StartTimer : String = "StartTimer"
+        static let PauseTimer : String = "PauseTimer"
+        static let TimerTriggeredEverySecond : String = "TimerTriggeredEverySecond"
+        static let NewTimerInitialized = "NewTimerInitialized"
+    }
 
 }
