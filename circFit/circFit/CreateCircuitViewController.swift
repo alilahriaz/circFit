@@ -55,7 +55,6 @@ class CreateCircuitViewController: UIViewController, UIPickerViewDelegate, UIPic
             if let duration = Int(self.durationTextField.text!) {
                 let newCircuitEntry = CircuitObject(workoutName: exerciseName , duration : duration, type: currentExerciseType)
                 self.circuitExcercises.append(newCircuitEntry)
-                CurrentWorkoutSingleton.sharedInstance.workoutArray.append(newCircuitEntry)
                 
                 self.circuitCollectionView.reloadData()
                 let bottomIndex : IndexPath = IndexPath.init(item: self.circuitExcercises.count-1, section: 0)
@@ -71,25 +70,17 @@ class CreateCircuitViewController: UIViewController, UIPickerViewDelegate, UIPic
         
     }
     
-// MARK : Test code
-    func generateTestWorkoutEntries() {
-        let newCircuitEntry = CircuitObject(workoutName: "#" + String(testCount), duration: testCount * 4, type: currentExerciseType)
-        testCount += 1
-        self.exerciseNameTextField.resignFirstResponder()
-        self.durationTextField.resignFirstResponder()
-        
-        self.circuitExcercises.append(newCircuitEntry)
-        CurrentWorkoutSingleton.sharedInstance.workoutArray.append(newCircuitEntry)
-        
-        self.circuitCollectionView.reloadData()
-        let bottomIndex : IndexPath = IndexPath.init(item: self.circuitExcercises.count-1, section: 0)
-        self.circuitCollectionView.scrollToItem(at: bottomIndex, at: UICollectionViewScrollPosition.bottom, animated: true)
+    fileprivate func addExercisesToWorkoutArray() {
+        for exercise in self.circuitExcercises {
+            CurrentWorkoutSingleton.sharedInstance.addActivityToCircuit(circObj: exercise)
+        }
     }
     
 // MARK: Navigation
     
     @IBAction func startButtonPressed(_ sender: AnyObject) {
-        if (CurrentWorkoutSingleton.sharedInstance.workoutArray.count > 0) {
+        addExercisesToWorkoutArray()
+        if (CurrentWorkoutSingleton.sharedInstance.circuitContainsActivities()) {
             self.performSegue(withIdentifier: Constants.SegueIdentifiers.ShowTimerScreen, sender: self)
         }
         else {
@@ -103,6 +94,20 @@ class CreateCircuitViewController: UIViewController, UIPickerViewDelegate, UIPic
         let noActivitiesAlertView = UIAlertController(title: "No activities added", message: "Please add activities before starting a workout", preferredStyle: UIAlertControllerStyle.alert)
         noActivitiesAlertView.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
         self.present(noActivitiesAlertView, animated: true, completion: nil)
+    }
+    
+    // MARK : Test code
+    func generateTestWorkoutEntries() {
+        let newCircuitEntry = CircuitObject(workoutName: "#" + String(testCount), duration: testCount * 4, type: currentExerciseType)
+        testCount += 1
+        self.exerciseNameTextField.resignFirstResponder()
+        self.durationTextField.resignFirstResponder()
+        
+        self.circuitExcercises.append(newCircuitEntry)
+        
+        self.circuitCollectionView.reloadData()
+        let bottomIndex : IndexPath = IndexPath.init(item: self.circuitExcercises.count-1, section: 0)
+        self.circuitCollectionView.scrollToItem(at: bottomIndex, at: UICollectionViewScrollPosition.bottom, animated: true)
     }
     
 // MARK: UIPickerView DataSource

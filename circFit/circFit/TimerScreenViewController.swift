@@ -47,14 +47,11 @@ class TimerScreenViewController: UIViewController {
     }
     
     func updateWorkoutLabels() {
-        var workoutArray = CurrentWorkoutSingleton.sharedInstance.workoutArray
-        self.timerScreenView.currentActivityTimeRemaining = (CurrentWorkoutSingleton.sharedInstance.workoutArray.first?.duration)!
-
-        if let currentActivity = workoutArray.first {
-            self.timerScreenView.currentActivityName = currentActivity.workoutName!
+        if let currentExercise = CurrentWorkoutSingleton.sharedInstance.currentActivity() {
+            self.timerScreenView.currentActivityTimeRemaining = currentExercise.duration!
+            self.timerScreenView.currentActivityName = currentExercise.workoutName!
             
-            if (workoutArray.count > 1) {
-                let upNextActivity = workoutArray[1]
+            if let upNextActivity = CurrentWorkoutSingleton.sharedInstance.upNextActivity() {
                 self.timerScreenView.upNextActivityName = upNextActivity.workoutName!
             }
             else {

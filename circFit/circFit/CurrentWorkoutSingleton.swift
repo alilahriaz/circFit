@@ -10,10 +10,11 @@ import UIKit
 
 class CurrentWorkoutSingleton: NSObject {
     static let sharedInstance = CurrentWorkoutSingleton()
-    var workoutArray = [CircuitObject]()
+    fileprivate var workoutArray = [CircuitObject]()
     var workoutTimer : Timer!
     var currentWorkoutRemainingDuration : Int = 0
     
+// MARK: Setup
     private override init() {
         print ("initialize singleton")
         super.init()
@@ -31,7 +32,50 @@ class CurrentWorkoutSingleton: NSObject {
         NotificationCenter.default.addObserver(self, selector: #selector(pauseTimer), name: NSNotification.Name(rawValue: Constants.TimerNotifications.PauseTimer), object: nil)
     }
     
-    func initializeTimer() {
+// MARK: Exercises Array Methods
+    func addActivityToCircuit(circObj: CircuitObject) {
+        self.workoutArray.append(circObj)
+    }
+    
+    func skipCurrentActivity(circObj: CircuitObject) {
+        if (circuitContainsActivities()) {
+            self.workoutArray.remove(at: 0)
+        }
+    }
+    
+    func circuitContainsActivities() -> Bool {
+        return self.numberOfExercisesInCircuit() > 0
+    }
+    
+    func circuitContainsUpNextActivity() -> Bool {
+        return self.numberOfExercisesInCircuit() > 1
+    }
+    
+    func numberOfExercisesInCircuit() -> Int {
+        return self.workoutArray.count
+    }
+    
+    func currentActivity() -> CircuitObject? {
+        if (circuitContainsActivities()) {
+            return self.workoutArray.first
+        }
+        else {
+            return nil
+        }
+    }
+    
+    func upNextActivity() -> CircuitObject? {
+        if (circuitContainsUpNextActivity()) {
+            return self.workoutArray[1]
+        }
+        else {
+            return nil
+        }
+    }
+    
+    
+// MARK: Timer
+    @objc fileprivate func initializeTimer() {
         //Check if timer was paused before
         NotificationCenter.default.post(name: Notification.Name(rawValue: Constants.TimerNotifications.NewTimerInitialized), object: nil)
         if (self.currentWorkoutRemainingDuration == 0) {
@@ -41,11 +85,11 @@ class CurrentWorkoutSingleton: NSObject {
         self.workoutTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(CurrentWorkoutSingleton.triggerTimerEverySecond), userInfo: nil, repeats: true)
     }
     
-    func pauseTimer() {
+    @objc fileprivate func pauseTimer() {
         self.workoutTimer.invalidate()
     }
     
-    func triggerTimerEverySecond() {
+    @objc fileprivate func triggerTimerEverySecond() {
         self.currentWorkoutRemainingDuration -= 1
         NotificationCenter.default.post(name: Notification.Name(rawValue: Constants.TimerNotifications.TimerTriggeredEverySecond), object: nil, userInfo: nil)
         
