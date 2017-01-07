@@ -37,7 +37,7 @@ class CreateCircuitViewController: UIViewController, UIPickerViewDelegate, UIPic
         self.exerciseNameTextField.autocorrectionType = .no
         self.circuitCollectionView.keyboardDismissMode = .interactive
         self.circuitCollectionView.alwaysBounceVertical = true
-
+        
     }
     
 // MARK: IBActions
@@ -52,20 +52,30 @@ class CreateCircuitViewController: UIViewController, UIPickerViewDelegate, UIPic
     
     func addWorkoutEntry() {
         if let exerciseName = self.exerciseNameTextField?.text! {
-            if let duration = Int(self.durationTextField.text!) {
-                let newCircuitEntry = CircuitObject(workoutName: exerciseName , duration : duration, type: currentExerciseType)
-                self.circuitExcercises.append(newCircuitEntry)
-                
-                self.circuitCollectionView.reloadData()
-                let bottomIndex : IndexPath = IndexPath.init(item: self.circuitExcercises.count-1, section: 0)
-                self.circuitCollectionView.scrollToItem(at: bottomIndex, at: UICollectionViewScrollPosition.bottom, animated: true)
+            if (exerciseName == "") {
+                showAlertViewForBlankActivityName()
             }
             else {
-                print("Please add a duration")
+                if let duration = Int(self.durationTextField.text!) {
+                    if (duration == 0) {
+                        showAlertForBlankDuration()
+                    }
+                    else {
+                        let newCircuitEntry = CircuitObject(workoutName: exerciseName , duration : duration, type: currentExerciseType)
+                        self.circuitExcercises.append(newCircuitEntry)
+                        
+                        self.circuitCollectionView.reloadData()
+                        let bottomIndex : IndexPath = IndexPath.init(item: self.circuitExcercises.count-1, section: 0)
+                        self.circuitCollectionView.scrollToItem(at: bottomIndex, at: UICollectionViewScrollPosition.bottom, animated: true)
+                    }
+                }
+                else {
+                    showAlertForBlankDuration()
+                }
             }
         }
         else {
-            print("Please add an exercise name")
+            showAlertViewForBlankActivityName()
         }
         
     }
@@ -91,7 +101,19 @@ class CreateCircuitViewController: UIViewController, UIPickerViewDelegate, UIPic
     @IBAction func unwindToCreateAWorkoutScreen(segue: UIStoryboardSegue) {}
     
     func showAlertViewForEmptyActivities() {
-        let noActivitiesAlertView = UIAlertController(title: "No activities added", message: "Please add activities before starting a workout", preferredStyle: UIAlertControllerStyle.alert)
+        displayAlertViewWithTitle(title: "No activities added", message: "Please add activities before starting a workout")
+    }
+    
+    func showAlertViewForBlankActivityName() {
+        displayAlertViewWithTitle(title: "No activity name", message: "Please enter an activity name")
+    }
+    
+    func showAlertForBlankDuration() {
+        displayAlertViewWithTitle(title: "No duration added", message: "Please enter duration (in seconds)")
+    }
+    
+    fileprivate func displayAlertViewWithTitle(title: String, message: String) {
+        let noActivitiesAlertView = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         noActivitiesAlertView.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
         self.present(noActivitiesAlertView, animated: true, completion: nil)
     }
