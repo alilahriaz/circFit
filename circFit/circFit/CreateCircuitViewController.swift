@@ -8,7 +8,7 @@
 
 import UIKit
 
-let TestCodeEnabled = true
+let TestCodeEnabled = false
 
 class CreateCircuitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
