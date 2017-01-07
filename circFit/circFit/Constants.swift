@@ -11,9 +11,10 @@ import UIKit
 class Constants: NSObject {
     
     struct AppColor {
-        static let AppGreen : UIColor = UIColor.init(red: 77/255, green: 179/255, blue: 104/255, alpha: 1.0)
-        static let WorkoutBlue : UIColor = UIColor.init(red: 54/255, green: 101/255, blue: 184/255, alpha: 1.0)
-        static let RestGray : UIColor = UIColor.init(red: 170/255, green: 170/255, blue: 170/255, alpha: 1.0)
+        static let BrilliantBlue : UIColor = UIColor.init(red: 53/255, green: 167/255, blue: 255/255, alpha: 1.0)
+        static let KhakiBrown : UIColor = UIColor.init(red: 206/255, green: 168/255, blue: 146/255, alpha: 1.0)
+        static let FieryRose : UIColor = UIColor.init(red: 255/255, green: 89/255, blue: 100/255, alpha: 1.0)
+        static let BrightYellow : UIColor = UIColor.init(red: 255/255, green: 231/255, blue: 76/255, alpha: 1.0)
     }
     
     struct SegueIdentifiers {

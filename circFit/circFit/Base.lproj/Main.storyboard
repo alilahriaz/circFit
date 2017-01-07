@@ -105,7 +105,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u3k-1w-Tha">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
-                                        <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="1" green="0.34901960784313724" blue="0.39215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="22"/>
                                         <state key="normal" title="Create a Workout">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -136,7 +136,9 @@
                             <constraint firstItem="6e8-jB-nw3" firstAttribute="top" secondItem="zTB-nS-uQ2" secondAttribute="bottom" id="zKg-e3-IFb"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="MwK-tY-XgK"/>
+                    <navigationItem key="navigationItem" id="MwK-tY-XgK">
+                        <barButtonItem key="backBarButtonItem" title="&lt;" id="UEt-Il-KcM"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="createWorkoutView" destination="rno-Q9-Zia" id="dy2-pP-Amr"/>
                         <outlet property="noSavedView" destination="hdn-ZI-Bmp" id="Mlm-Xi-kBK"/>
@@ -162,34 +164,34 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zp2-Uh-rOR" userLabel="Add Circuit Form View">
                                 <rect key="frame" x="0.0" y="64" width="375" height="100"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e.g. 30" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="er4-6o-92p" userLabel="Duration (s) Text Field">
-                                        <rect key="frame" x="110" y="25" width="40" height="50"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="30" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="er4-6o-92p" userLabel="Duration (s) Text Field">
+                                        <rect key="frame" x="110" y="50" width="60" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="JMc-gP-fXn"/>
+                                            <constraint firstAttribute="width" constant="60" id="JMc-gP-fXn"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S6V-C8-nOI" userLabel="Enter Set button">
-                                        <rect key="frame" x="331" y="30" width="40" height="40"/>
-                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S6V-C8-nOI" userLabel="Enter Set button">
+                                        <rect key="frame" x="326" y="27.5" width="45" height="45"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="5aP-hC-3ds"/>
-                                            <constraint firstAttribute="width" constant="40" id="csS-FH-bde"/>
+                                            <constraint firstAttribute="height" constant="45" id="5aP-hC-3ds"/>
+                                            <constraint firstAttribute="width" constant="45" id="csS-FH-bde"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
-                                        <state key="normal" title="ADD">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
+                                        <state key="normal" title="+">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="enterButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4HZ-pD-TEH"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e.g. &quot;Pushups&quot;" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ooZ-gz-yAG" userLabel="Exercise Name Text Field">
-                                        <rect key="frame" x="8" y="25" width="94" height="50"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="&quot;Pushups&quot;" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ooZ-gz-yAG" userLabel="Exercise Name Text Field">
+                                        <rect key="frame" x="8" y="50" width="94" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="145" id="DDd-sx-ySD"/>
-                                            <constraint firstAttribute="height" constant="50" id="GaT-XU-ygU"/>
+                                            <constraint firstAttribute="height" constant="40" id="GaT-XU-ygU"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -200,47 +202,58 @@
                                         </variation>
                                     </textField>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xw8-lt-WOJ">
-                                        <rect key="frame" x="158" y="20" width="169" height="60"/>
+                                        <rect key="frame" x="190" y="14" width="126" height="92"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="92" id="lVd-67-oTp"/>
+                                        </constraints>
                                     </pickerView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workout name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HV4-U3-pbJ">
-                                        <rect key="frame" x="8" y="5" width="94" height="16"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HV4-U3-pbJ">
+                                        <rect key="frame" x="8" y="31.5" width="94" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8q-Yc-tMt">
-                                        <rect key="frame" x="110" y="5" width="93.5" height="16"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration (s)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8q-Yc-tMt">
+                                        <rect key="frame" x="110" y="31.5" width="67" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add activities to your circuit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Vh-Q4-23s">
+                                        <rect key="frame" x="0.0" y="4" width="375" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.32851519489999997" green="0.7881085873" blue="0.48896544079999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.20784313725490194" green="0.65490196078431373" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="J8q-Yc-tMt" firstAttribute="width" secondItem="HV4-U3-pbJ" secondAttribute="width" id="BzU-TV-Opd"/>
-                                    <constraint firstItem="ooZ-gz-yAG" firstAttribute="centerY" secondItem="zp2-Uh-rOR" secondAttribute="centerY" id="EW4-P8-8au"/>
+                                    <constraint firstItem="xw8-lt-WOJ" firstAttribute="centerY" secondItem="er4-6o-92p" secondAttribute="centerY" constant="-10" id="5GX-Of-lrQ"/>
                                     <constraint firstAttribute="height" constant="100" id="HJK-hS-lET"/>
                                     <constraint firstItem="ooZ-gz-yAG" firstAttribute="leading" secondItem="zp2-Uh-rOR" secondAttribute="leading" constant="8" id="N1Y-0v-M7K"/>
+                                    <constraint firstItem="0Vh-Q4-23s" firstAttribute="centerX" secondItem="zp2-Uh-rOR" secondAttribute="centerX" id="NSl-ym-fSs"/>
                                     <constraint firstItem="er4-6o-92p" firstAttribute="top" secondItem="J8q-Yc-tMt" secondAttribute="bottom" constant="4" id="Qpr-GA-zz3"/>
-                                    <constraint firstItem="xw8-lt-WOJ" firstAttribute="leading" secondItem="er4-6o-92p" secondAttribute="trailing" constant="8" id="SWm-dU-ILQ"/>
-                                    <constraint firstAttribute="bottom" secondItem="xw8-lt-WOJ" secondAttribute="bottom" constant="20" id="Tbe-T8-m13"/>
+                                    <constraint firstItem="xw8-lt-WOJ" firstAttribute="leading" secondItem="er4-6o-92p" secondAttribute="trailing" constant="20" id="SWm-dU-ILQ"/>
                                     <constraint firstItem="er4-6o-92p" firstAttribute="leading" secondItem="ooZ-gz-yAG" secondAttribute="trailing" constant="8" id="WaW-eM-hT4"/>
                                     <constraint firstItem="HV4-U3-pbJ" firstAttribute="leading" secondItem="ooZ-gz-yAG" secondAttribute="leading" id="cnl-hn-7qD"/>
                                     <constraint firstItem="ooZ-gz-yAG" firstAttribute="width" secondItem="zp2-Uh-rOR" secondAttribute="width" multiplier="0.25" id="gXa-bS-r3M"/>
+                                    <constraint firstItem="0Vh-Q4-23s" firstAttribute="width" secondItem="zp2-Uh-rOR" secondAttribute="width" id="hnL-f7-MBN"/>
                                     <constraint firstItem="HV4-U3-pbJ" firstAttribute="trailing" secondItem="ooZ-gz-yAG" secondAttribute="trailing" id="iG0-0s-DUt"/>
                                     <constraint firstItem="er4-6o-92p" firstAttribute="height" secondItem="ooZ-gz-yAG" secondAttribute="height" id="inM-VP-AwX"/>
                                     <constraint firstItem="ooZ-gz-yAG" firstAttribute="top" secondItem="HV4-U3-pbJ" secondAttribute="bottom" constant="4" id="jZX-Fj-Qnw"/>
-                                    <constraint firstItem="S6V-C8-nOI" firstAttribute="leading" secondItem="xw8-lt-WOJ" secondAttribute="trailing" constant="4" id="krQ-A7-Zwp"/>
+                                    <constraint firstItem="S6V-C8-nOI" firstAttribute="leading" secondItem="xw8-lt-WOJ" secondAttribute="trailing" constant="10" id="krQ-A7-Zwp"/>
+                                    <constraint firstAttribute="bottom" secondItem="ooZ-gz-yAG" secondAttribute="bottom" constant="10" id="ntT-Lo-vPA"/>
                                     <constraint firstAttribute="trailing" secondItem="S6V-C8-nOI" secondAttribute="trailing" constant="4" id="pTX-mz-Xau"/>
                                     <constraint firstItem="er4-6o-92p" firstAttribute="centerY" secondItem="ooZ-gz-yAG" secondAttribute="centerY" id="qnm-zP-xkf"/>
-                                    <constraint firstItem="xw8-lt-WOJ" firstAttribute="top" secondItem="zp2-Uh-rOR" secondAttribute="top" constant="20" id="r2r-4U-AGP"/>
+                                    <constraint firstItem="0Vh-Q4-23s" firstAttribute="top" secondItem="zp2-Uh-rOR" secondAttribute="top" constant="4" id="tTh-Sz-C0s"/>
                                     <constraint firstItem="S6V-C8-nOI" firstAttribute="centerY" secondItem="zp2-Uh-rOR" secondAttribute="centerY" id="tw4-SW-HL2"/>
                                     <constraint firstItem="J8q-Yc-tMt" firstAttribute="leading" secondItem="er4-6o-92p" secondAttribute="leading" id="wJM-rY-APH"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OrL-Nd-Yxy">
                                 <rect key="frame" x="0.0" y="164" width="375" height="438"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="3" minimumInteritemSpacing="3" id="tMb-qX-1dM">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="tMb-qX-1dM">
                                     <size key="itemSize" width="374" height="63"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -254,18 +267,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="63"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activity: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vJK-cp-3TD" userLabel="Workout Label">
-                                                    <rect key="frame" x="8" y="4" width="52.5" height="16"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vJK-cp-3TD" userLabel="Workout Label">
+                                                    <rect key="frame" x="8" y="21.5" width="18" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxM-r3-6BE">
-                                                    <rect key="frame" x="8" y="21.5" width="224.5" height="20.5"/>
+                                                    <rect key="frame" x="34" y="20" width="262" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="nU1-0e-H1p"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
@@ -275,25 +288,25 @@
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Nb-f9-SyF">
-                                                    <rect key="frame" x="252.5" y="21.5" width="113.5" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="319" y="19.5" width="47" height="24"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </view>
-                                        <color key="backgroundColor" red="0.21266251440879136" green="0.39448448361579103" blue="0.72336632013320923" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.20784313725490194" green="0.65490196078431373" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstItem="cxM-r3-6BE" firstAttribute="centerY" secondItem="lX4-52-mRV" secondAttribute="centerY" id="IUH-Ks-NKc"/>
-                                            <constraint firstItem="7Nb-f9-SyF" firstAttribute="leading" secondItem="cxM-r3-6BE" secondAttribute="trailing" constant="20" id="PeN-nb-1rQ"/>
-                                            <constraint firstItem="cxM-r3-6BE" firstAttribute="width" secondItem="lX4-52-mRV" secondAttribute="width" multiplier="0.6" id="VL5-pX-FUL"/>
+                                            <constraint firstItem="cxM-r3-6BE" firstAttribute="centerY" secondItem="vJK-cp-3TD" secondAttribute="centerY" id="E9J-6N-EhV"/>
+                                            <constraint firstItem="cxM-r3-6BE" firstAttribute="width" secondItem="lX4-52-mRV" secondAttribute="width" multiplier="0.7" id="VL5-pX-FUL"/>
                                             <constraint firstAttribute="trailing" secondItem="7Nb-f9-SyF" secondAttribute="trailing" constant="8" id="gTI-Uk-iWD"/>
-                                            <constraint firstItem="cxM-r3-6BE" firstAttribute="leading" secondItem="lX4-52-mRV" secondAttribute="leading" constant="8" id="kiK-jI-sKy"/>
-                                            <constraint firstItem="vJK-cp-3TD" firstAttribute="leading" secondItem="lX4-52-mRV" secondAttribute="leading" constant="8" id="pSi-8w-9Mm"/>
-                                            <constraint firstItem="vJK-cp-3TD" firstAttribute="top" secondItem="lX4-52-mRV" secondAttribute="top" constant="4" id="sgl-cp-UH2"/>
+                                            <constraint firstItem="cxM-r3-6BE" firstAttribute="leading" secondItem="vJK-cp-3TD" secondAttribute="trailing" constant="8" id="hJf-5j-dP2"/>
+                                            <constraint firstItem="vJK-cp-3TD" firstAttribute="centerY" secondItem="lX4-52-mRV" secondAttribute="centerY" id="oB9-r7-yMZ"/>
+                                            <constraint firstItem="vJK-cp-3TD" firstAttribute="leading" secondItem="lX4-52-mRV" secondAttribute="leading" constant="8" id="x94-hq-aMj"/>
                                             <constraint firstItem="7Nb-f9-SyF" firstAttribute="centerY" secondItem="lX4-52-mRV" secondAttribute="centerY" id="zZj-eb-z7N"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="activityNumberLabel" destination="vJK-cp-3TD" id="KKi-fa-TdP"/>
                                             <outlet property="workoutDurationLabel" destination="7Nb-f9-SyF" id="OlD-4c-vkq"/>
                                             <outlet property="workoutNameLabel" destination="cxM-r3-6BE" id="FcN-E4-YA4"/>
                                         </connections>
@@ -309,7 +322,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rmn-C7-0GC">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
-                                        <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="1" green="0.34901960784313724" blue="0.39215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
                                         <state key="normal" title="Start">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -344,6 +357,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addActivityButton" destination="S6V-C8-nOI" id="gHR-Ub-FjQ"/>
                         <outlet property="addCircuitFormView" destination="zp2-Uh-rOR" id="VWk-0n-p8X"/>
                         <outlet property="circuitCollectionView" destination="OrL-Nd-Yxy" id="Vnw-Wc-fX0"/>
                         <outlet property="durationTextField" destination="er4-6o-92p" id="l0W-3d-lID"/>

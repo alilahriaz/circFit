@@ -11,6 +11,12 @@ import UIKit
 class CircuitCollectionViewCell: UICollectionViewCell {
     
 // MARK: properties
+    var activityNumber : Int = 0 {
+        didSet {
+            activityNumberLabel.text = "#" + String(activityNumber)
+        }
+    }
+    
     var workoutName : String = "" {
         didSet {
             workoutNameLabel.text = workoutName
@@ -18,7 +24,7 @@ class CircuitCollectionViewCell: UICollectionViewCell {
     }
     var workoutDuration : Int = 0 {
         didSet {
-            workoutDurationLabel.text = String(workoutDuration)
+            workoutDurationLabel.text = String(workoutDuration) + " s"
         }
     }
     
@@ -27,9 +33,9 @@ class CircuitCollectionViewCell: UICollectionViewCell {
             if self.type != nil {
                 switch self.type! {
                 case .workout:
-                    self.backgroundColor = Constants.AppColor.WorkoutBlue
+                    self.backgroundColor = Constants.AppColor.BrilliantBlue
                 case .rest:
-                    self.backgroundColor = Constants.AppColor.RestGray
+                    self.backgroundColor = Constants.AppColor.KhakiBrown
                     
                 }
             }
@@ -37,6 +43,7 @@ class CircuitCollectionViewCell: UICollectionViewCell {
     }
     
 //MARK: IBOutlets
+    @IBOutlet weak var activityNumberLabel: UILabel!
     @IBOutlet weak var workoutDurationLabel: UILabel!
     @IBOutlet weak var workoutNameLabel: UILabel!
 

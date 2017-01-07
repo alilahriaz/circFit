@@ -8,7 +8,7 @@
 
 import UIKit
 
-let TestCodeEnabled = false
+let TestCodeEnabled = true
 
 class CreateCircuitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
@@ -25,6 +25,7 @@ class CreateCircuitViewController: UIViewController, UIPickerViewDelegate, UIPic
     @IBOutlet weak var durationTextField: UITextField!
     @IBOutlet weak var exerciseTypePickerView: UIPickerView!
     @IBOutlet weak var addCircuitFormView: UIView!
+    @IBOutlet weak var addActivityButton: UIButton!
 
     
 // MARK: UIViewController
@@ -37,6 +38,13 @@ class CreateCircuitViewController: UIViewController, UIPickerViewDelegate, UIPic
         self.exerciseNameTextField.autocorrectionType = .no
         self.circuitCollectionView.keyboardDismissMode = .interactive
         self.circuitCollectionView.alwaysBounceVertical = true
+        
+        self.addCircuitFormView.layer.borderColor = UIColor.black.cgColor
+        self.addCircuitFormView.layer.borderWidth = 2.0
+        self.addActivityButton.layer.cornerRadius = self.addActivityButton.frame.size.width/2.0
+        self.addActivityButton.layer.masksToBounds = true
+        self.addActivityButton.layer.borderColor = UIColor.white.cgColor
+        self.addActivityButton.layer.borderWidth = 3.0
         
     }
     
@@ -59,6 +67,9 @@ class CreateCircuitViewController: UIViewController, UIPickerViewDelegate, UIPic
                 if let duration = Int(self.durationTextField.text!) {
                     if (duration == 0) {
                         showAlertForBlankDuration()
+                    }
+                    else if (duration > 300) {
+                        showAlertForExcessDuration()
                     }
                     else {
                         let newCircuitEntry = CircuitObject(workoutName: exerciseName , duration : duration, type: currentExerciseType)
@@ -112,6 +123,10 @@ class CreateCircuitViewController: UIViewController, UIPickerViewDelegate, UIPic
         displayAlertViewWithTitle(title: "No duration added", message: "Please enter duration (in seconds)")
     }
     
+    func showAlertForExcessDuration() {
+        displayAlertViewWithTitle(title: "Duration too high", message: "Please enter duration below 300 s")
+    }
+    
     fileprivate func displayAlertViewWithTitle(title: String, message: String) {
         let noActivitiesAlertView = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         noActivitiesAlertView.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
@@ -160,13 +175,15 @@ class CreateCircuitViewController: UIViewController, UIPickerViewDelegate, UIPic
     func restSelectedFromPickerView() {
         self.exerciseNameTextField.text = "Rest"
         self.exerciseNameTextField.isEnabled = false
-        self.addCircuitFormView.backgroundColor = Constants.AppColor.RestGray
+        self.addCircuitFormView.backgroundColor = Constants.AppColor.KhakiBrown
+        self.addCircuitFormView.alpha = 0.8
     }
     
     func workoutSelectedFromPickerView() {
         self.exerciseNameTextField.isEnabled = true
         self.exerciseNameTextField.text = ""
-        self.addCircuitFormView.backgroundColor = Constants.AppColor.AppGreen
+        self.addCircuitFormView.backgroundColor = Constants.AppColor.BrilliantBlue
+        self.addCircuitFormView.alpha = 0.8
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -200,6 +217,7 @@ extension CreateCircuitViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! CircuitCollectionViewCell
         let circuit = self.circuitExcercises[(indexPath as NSIndexPath).item]
+        cell.activityNumber = indexPath.item + 1
         cell.workoutName = circuit.workoutName!
         cell.workoutDuration = circuit.duration!
         cell.type = circuit.type
@@ -212,6 +230,6 @@ extension CreateCircuitViewController : UICollectionViewDataSource {
 extension CreateCircuitViewController : UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.view.frame.width, height: 100.0)
+        return CGSize(width: self.view.frame.width, height: 75.0)
     }
 }
