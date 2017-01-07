@@ -26,6 +26,7 @@ class Constants: NSObject {
         static let PauseTimer : String = "PauseTimer"
         static let TimerTriggeredEverySecond : String = "TimerTriggeredEverySecond"
         static let NewTimerInitialized = "NewTimerInitialized"
+        static let EndSession = "EndSessionNotification"
     }
 
 }

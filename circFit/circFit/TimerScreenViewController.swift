@@ -61,6 +61,7 @@ class TimerScreenViewController: UIViewController {
     }
     
     @IBAction func closeButtonPressed(_ sender: AnyObject) {
+        NotificationCenter.default.post(name: Notification.Name(rawValue: Constants.TimerNotifications.EndSession), object: nil, userInfo: nil)
         self.performSegue(withIdentifier:  Constants.SegueIdentifiers.UnwindToCreateWorkoutScreen , sender: self)
     }
 

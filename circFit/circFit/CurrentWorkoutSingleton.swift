@@ -19,7 +19,7 @@ class CurrentWorkoutSingleton: NSObject {
         print ("initialize singleton")
         super.init()
         
-        setupNotifications()
+        setupNotificationsObservers()
     }
     
     deinit {
@@ -27,9 +27,11 @@ class CurrentWorkoutSingleton: NSObject {
         NotificationCenter.default.removeObserver(self, name: Notification.Name(rawValue: Constants.TimerNotifications.PauseTimer), object: nil)
     }
     
-    fileprivate func setupNotifications() {
+    fileprivate func setupNotificationsObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(initializeTimer), name: NSNotification.Name(rawValue: Constants.TimerNotifications.StartTimer), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(pauseTimer), name: NSNotification.Name(rawValue: Constants.TimerNotifications.PauseTimer), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(endSession), name: NSNotification.Name(rawValue: Constants.TimerNotifications.EndSession), object: nil)
+
     }
     
 // MARK: Exercises Array Methods
@@ -37,7 +39,7 @@ class CurrentWorkoutSingleton: NSObject {
         self.workoutArray.append(circObj)
     }
     
-    func skipCurrentActivity(circObj: CircuitObject) {
+    func skipCurrentActivity() {
         if (circuitContainsActivities()) {
             self.workoutArray.remove(at: 0)
         }
@@ -73,6 +75,10 @@ class CurrentWorkoutSingleton: NSObject {
         }
     }
     
+    fileprivate func clearAllActivities() {
+        self.workoutArray.removeAll()
+    }
+    
     
 // MARK: Timer
     @objc fileprivate func initializeTimer() {
@@ -83,6 +89,11 @@ class CurrentWorkoutSingleton: NSObject {
         }
         
         self.workoutTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(CurrentWorkoutSingleton.triggerTimerEverySecond), userInfo: nil, repeats: true)
+    }
+    
+    @objc fileprivate func cancelTimer() {
+        self.workoutTimer.invalidate()
+        self.currentWorkoutRemainingDuration = 0
     }
     
     @objc fileprivate func pauseTimer() {
@@ -98,13 +109,19 @@ class CurrentWorkoutSingleton: NSObject {
         }
     }
     
+// Mark: Session
+    
     func exerciseFinished() {
-        pauseTimer()
-        self.currentWorkoutRemainingDuration = 0
-        self.workoutArray.removeFirst()
+        cancelTimer()
+        skipCurrentActivity()
         
-        if (self.workoutArray.count >= 1) {
+        if (circuitContainsActivities()) {
             initializeTimer()
         }
+    }
+    
+    func endSession() {
+        cancelTimer()
+        clearAllActivities()
     }
 }
