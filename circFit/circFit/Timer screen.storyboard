@@ -109,6 +109,9 @@
                                         <state key="normal" title="Pause">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="pauseButtonPressed:" destination="Md5-8Q-GFd" eventType="touchUpInside" id="x4n-hZ-tsy"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -140,13 +143,14 @@
                             <constraint firstItem="quE-1z-vUh" firstAttribute="centerX" secondItem="plV-C3-P7a" secondAttribute="centerX" id="ud0-rl-fdU"/>
                         </constraints>
                         <connections>
+                            <outlet property="closeButton" destination="LIr-bs-f9u" id="7WB-7E-zhA"/>
                             <outlet property="currentActivityLabel" destination="MRj-40-SQa" id="lnZ-eB-brw"/>
                             <outlet property="currentTimeRemainingLabel" destination="OiQ-Oc-D3J" id="opE-3B-vQd"/>
                             <outlet property="nextActivityLabel" destination="nqQ-CE-6k9" id="n0t-Kp-Egf"/>
+                            <outlet property="pauseButton" destination="raS-Jh-IIk" id="suy-MM-Lh0"/>
                         </connections>
                     </view>
                     <connections>
-                        <outlet property="closeButton" destination="LIr-bs-f9u" id="Cfa-V4-IC7"/>
                         <outlet property="timerScreenView" destination="plV-C3-P7a" id="nnb-rJ-XNT"/>
                         <segue destination="gqg-lF-0h9" kind="unwind" identifier="unwindToCreateAWorkoutScreen" unwindAction="unwindToCreateAWorkoutScreenWithSegue:" id="giD-Ae-YtX"/>
                     </connections>

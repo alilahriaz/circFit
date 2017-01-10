@@ -83,10 +83,10 @@ class CurrentWorkoutSingleton: NSObject {
 // MARK: Timer
     @objc fileprivate func initializeTimer() {
         //Check if timer was paused before
-        NotificationCenter.default.post(name: Notification.Name(rawValue: Constants.TimerNotifications.NewTimerInitialized), object: nil)
         if (self.currentWorkoutRemainingDuration == 0) {
             self.currentWorkoutRemainingDuration = (self.workoutArray.first?.duration!)!
         }
+        NotificationCenter.default.post(name: Notification.Name(rawValue: Constants.TimerNotifications.NewTimerInitialized), object: nil)
         
         self.workoutTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(CurrentWorkoutSingleton.triggerTimerEverySecond), userInfo: nil, repeats: true)
     }

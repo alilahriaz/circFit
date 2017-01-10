@@ -14,24 +14,29 @@ class TimerScreenView: UIView {
     @IBOutlet weak fileprivate var currentActivityLabel : UILabel!
     @IBOutlet weak fileprivate var nextActivityLabel : UILabel!
     @IBOutlet weak fileprivate var currentTimeRemainingLabel : UILabel!
+    @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet weak var pauseButton: UIButton!
     
     // MARK: Properties/setters
     var currentActivityName : String = "" {
         didSet {
-            print (currentActivityName)
             self.currentActivityLabel.text = currentActivityName
         }
     }
     var upNextActivityName : String = "" {
         didSet {
-            print (upNextActivityName)
             self.nextActivityLabel.text = upNextActivityName
         }
     }
-    var currentActivityTimeRemaining = 0 {
+    var currentActivityTimeRemaining = (CurrentWorkoutSingleton.sharedInstance.currentActivity()?.duration)! {
         didSet {
             print (currentActivityTimeRemaining)
             self.currentTimeRemainingLabel.text = String(currentActivityTimeRemaining) + " s"
+        }
+    }
+    var pauseButtonText : String = "Pause" {
+        didSet {
+            self.pauseButton.titleLabel?.text = pauseButtonText
         }
     }
     
