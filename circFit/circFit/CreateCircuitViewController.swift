@@ -8,11 +8,16 @@
 
 import UIKit
 
+let TestCodeEnabled = false
+
 class CreateCircuitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     var circuitExcercises : [CircuitObject] = []
     let cellIdentifier = String (describing : CircuitCollectionViewCell.self)
     var currentExerciseType : exerciseType = .workout
+    
+    //TEST
+    var testCount = 1
 
 // MARK: IBOutlets
     @IBOutlet weak var circuitCollectionView: UICollectionView!
@@ -20,6 +25,8 @@ class CreateCircuitViewController: UIViewController, UIPickerViewDelegate, UIPic
     @IBOutlet weak var durationTextField: UITextField!
     @IBOutlet weak var exerciseTypePickerView: UIPickerView!
     @IBOutlet weak var addCircuitFormView: UIView!
+    @IBOutlet weak var addActivityButton: UIButton!
+
     
 // MARK: UIViewController
     override func viewDidLoad() {
@@ -27,28 +34,117 @@ class CreateCircuitViewController: UIViewController, UIPickerViewDelegate, UIPic
         
         self.exerciseTypePickerView.delegate = self;
         self.exerciseTypePickerView.dataSource = self;
+        
+        self.exerciseNameTextField.autocorrectionType = .no
+        self.circuitCollectionView.keyboardDismissMode = .interactive
+        self.circuitCollectionView.alwaysBounceVertical = true
+        
+        self.addCircuitFormView.layer.borderColor = UIColor.black.cgColor
+        self.addCircuitFormView.layer.borderWidth = 2.0
+        self.addActivityButton.layer.cornerRadius = self.addActivityButton.frame.size.width/2.0
+        self.addActivityButton.layer.masksToBounds = true
+        self.addActivityButton.layer.borderColor = UIColor.white.cgColor
+        self.addActivityButton.layer.borderWidth = 3.0
+        
     }
     
 // MARK: IBActions
     @IBAction func enterButtonPressed(_ sender: UIButton) {
-        
+        if (TestCodeEnabled) {
+            generateTestWorkoutEntries()
+        }
+        else {
+            addWorkoutEntry()
+        }
+    }
+    
+    func addWorkoutEntry() {
         if let exerciseName = self.exerciseNameTextField?.text! {
-            if let duration = Int(self.durationTextField.text!) {
-                
-                let newCircuitEntry = CircuitObject(workoutName: exerciseName , duration : duration, type: currentExerciseType)
-                self.circuitExcercises.append(newCircuitEntry)
-                
-                self.circuitCollectionView.reloadData()
-                let bottomIndex : IndexPath = IndexPath.init(item: self.circuitExcercises.count-1, section: 0)
-                self.circuitCollectionView.scrollToItem(at: bottomIndex, at: UICollectionViewScrollPosition.bottom, animated: true)
+            if (exerciseName == "") {
+                showAlertViewForBlankActivityName()
             }
             else {
-                print("Please add a duration")
+                if let duration = Int(self.durationTextField.text!) {
+                    if (duration == 0) {
+                        showAlertForBlankDuration()
+                    }
+                    else if (duration > 300) {
+                        showAlertForExcessDuration()
+                    }
+                    else {
+                        let newCircuitEntry = CircuitObject(workoutName: exerciseName , duration : duration, type: currentExerciseType)
+                        self.circuitExcercises.append(newCircuitEntry)
+                        
+                        self.circuitCollectionView.reloadData()
+                        let bottomIndex : IndexPath = IndexPath.init(item: self.circuitExcercises.count-1, section: 0)
+                        self.circuitCollectionView.scrollToItem(at: bottomIndex, at: UICollectionViewScrollPosition.bottom, animated: true)
+                    }
+                }
+                else {
+                    showAlertForBlankDuration()
+                }
             }
         }
         else {
-            print("Please add an exercise name")
+            showAlertViewForBlankActivityName()
         }
+        
+    }
+    
+    fileprivate func addExercisesToWorkoutArray() {
+        for exercise in self.circuitExcercises {
+            CurrentWorkoutSingleton.sharedInstance.addActivityToCircuit(circObj: exercise)
+        }
+    }
+    
+// MARK: Navigation
+    
+    @IBAction func startButtonPressed(_ sender: AnyObject) {
+        addExercisesToWorkoutArray()
+        if (CurrentWorkoutSingleton.sharedInstance.circuitContainsActivities()) {
+            self.performSegue(withIdentifier: Constants.SegueIdentifiers.ShowTimerScreen, sender: self)
+        }
+        else {
+            self.showAlertViewForEmptyActivities()
+        }
+    }
+    
+    @IBAction func unwindToCreateAWorkoutScreen(segue: UIStoryboardSegue) {}
+    
+    func showAlertViewForEmptyActivities() {
+        displayAlertViewWithTitle(title: "No activities added", message: "Please add activities before starting a workout")
+    }
+    
+    func showAlertViewForBlankActivityName() {
+        displayAlertViewWithTitle(title: "No activity name", message: "Please enter an activity name")
+    }
+    
+    func showAlertForBlankDuration() {
+        displayAlertViewWithTitle(title: "No duration added", message: "Please enter duration (in seconds)")
+    }
+    
+    func showAlertForExcessDuration() {
+        displayAlertViewWithTitle(title: "Duration too high", message: "Please enter duration below 300 s")
+    }
+    
+    fileprivate func displayAlertViewWithTitle(title: String, message: String) {
+        let noActivitiesAlertView = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        noActivitiesAlertView.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
+        self.present(noActivitiesAlertView, animated: true, completion: nil)
+    }
+    
+    // MARK : Test code
+    func generateTestWorkoutEntries() {
+        let newCircuitEntry = CircuitObject(workoutName: "#" + String(testCount), duration: testCount * 4, type: currentExerciseType)
+        testCount += 1
+        self.exerciseNameTextField.resignFirstResponder()
+        self.durationTextField.resignFirstResponder()
+        
+        self.circuitExcercises.append(newCircuitEntry)
+        
+        self.circuitCollectionView.reloadData()
+        let bottomIndex : IndexPath = IndexPath.init(item: self.circuitExcercises.count-1, section: 0)
+        self.circuitCollectionView.scrollToItem(at: bottomIndex, at: UICollectionViewScrollPosition.bottom, animated: true)
     }
     
 // MARK: UIPickerView DataSource
@@ -79,13 +175,15 @@ class CreateCircuitViewController: UIViewController, UIPickerViewDelegate, UIPic
     func restSelectedFromPickerView() {
         self.exerciseNameTextField.text = "Rest"
         self.exerciseNameTextField.isEnabled = false
-        self.addCircuitFormView.backgroundColor = Constants.AppColor.RestGray
+        self.addCircuitFormView.backgroundColor = Constants.AppColor.KhakiBrown
+        self.addCircuitFormView.alpha = 0.8
     }
     
     func workoutSelectedFromPickerView() {
         self.exerciseNameTextField.isEnabled = true
         self.exerciseNameTextField.text = ""
-        self.addCircuitFormView.backgroundColor = Constants.AppColor.AppGreen
+        self.addCircuitFormView.backgroundColor = Constants.AppColor.BrilliantBlue
+        self.addCircuitFormView.alpha = 0.8
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -119,6 +217,7 @@ extension CreateCircuitViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! CircuitCollectionViewCell
         let circuit = self.circuitExcercises[(indexPath as NSIndexPath).item]
+        cell.activityNumber = indexPath.item + 1
         cell.workoutName = circuit.workoutName!
         cell.workoutDuration = circuit.duration!
         cell.type = circuit.type
@@ -131,6 +230,6 @@ extension CreateCircuitViewController : UICollectionViewDataSource {
 extension CreateCircuitViewController : UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.view.frame.width, height: 100.0)
+        return CGSize(width: self.view.frame.width, height: 75.0)
     }
 }
